@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>感情ある？診断</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💭</text></svg>">
+<title>感情ある？深層診断</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
@@ -23,9 +23,7 @@
   --shadow: 0 4px 20px rgba(0,0,0,0.08);
   --radius: 20px;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   background: linear-gradient(135deg, #FFF0F5 0%, #F0F4FF 50%, #FFF9F0 100%);
@@ -33,7 +31,6 @@ body {
   color: var(--text);
   overflow-x: hidden;
 }
-
 .container {
   max-width: 480px;
   margin: 0 auto;
@@ -43,21 +40,11 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.screen {
-  display: none;
-  width: 100%;
-  animation: fadeSlideIn 0.5s ease;
-}
+.screen { display: none; width: 100%; animation: fadeSlideIn 0.5s ease; }
 .screen.active { display: block; }
-
 @keyframes fadeSlideIn {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeOut {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(-24px); }
 }
 @keyframes float {
   0%, 100% { transform: translateY(0); }
@@ -67,439 +54,209 @@ body {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.1); }
 }
-@keyframes countUp {
-  from { opacity: 0; transform: scale(0.5); }
-  to { opacity: 1; transform: scale(1); }
-}
 @keyframes dotBlink {
   0%, 20% { opacity: 0; }
   40% { opacity: 1; }
 }
-@keyframes gaugeGrow {
-  from { width: 0%; }
-}
+@keyframes gaugeGrow { from { width: 0%; } }
 @keyframes bounceIn {
   0% { transform: scale(0); opacity: 0; }
   50% { transform: scale(1.15); }
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* ===== START SCREEN ===== */
+/* ===== START ===== */
 .start-content { text-align: center; }
-
-.hero-emoji {
-  font-size: 80px;
-  animation: float 3s ease-in-out infinite;
-  margin-bottom: 8px;
-}
-.hero-sub-emoji {
-  font-size: 48px;
-  margin-bottom: 24px;
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-}
+.hero-emoji { font-size: 80px; animation: float 3s ease-in-out infinite; margin-bottom: 8px; }
+.hero-sub-emoji { font-size: 48px; margin-bottom: 24px; display: flex; justify-content: center; gap: 32px; }
 .hero-sub-emoji span:first-child { animation: pulse 2s ease-in-out infinite; }
 .hero-sub-emoji span:last-child { animation: pulse 2s ease-in-out infinite 1s; }
-
-.start-content h1 {
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
+.start-content h1 { font-size: 30px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; }
 .start-content h1 span {
   background: linear-gradient(135deg, var(--pink), var(--purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
-.start-content .subtitle {
-  font-size: 15px;
-  color: var(--text-light);
-  line-height: 1.8;
-  margin-bottom: 40px;
+.start-content .subtitle { font-size: 14px; color: var(--text-light); line-height: 1.8; margin-bottom: 16px; }
+.start-content .subtitle em { font-style: normal; font-weight: 700; color: var(--text); }
+.start-intro {
+  background: var(--card); border-radius: 14px; padding: 16px 18px; margin-bottom: 32px;
+  font-size: 13px; line-height: 1.8; color: var(--text-light); text-align: left; box-shadow: var(--shadow);
 }
-.start-content .subtitle em {
-  font-style: normal;
-  font-weight: 700;
-  color: var(--text);
-}
-
+.start-intro strong { color: var(--text); }
 .btn-start {
-  background: linear-gradient(135deg, var(--pink), var(--purple));
-  color: white;
-  border: none;
-  padding: 18px 64px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: 700;
-  font-family: inherit;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(255,107,138,0.4);
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, var(--pink), var(--purple)); color: white; border: none;
+  padding: 18px 64px; border-radius: 50px; font-size: 18px; font-weight: 700; font-family: inherit;
+  cursor: pointer; box-shadow: 0 4px 16px rgba(255,107,138,0.4); transition: all 0.3s ease;
   -webkit-tap-highlight-color: transparent;
 }
 .btn-start:active { transform: scale(0.95); }
 
-/* ===== QUIZ SCREEN ===== */
-.progress-wrapper {
-  margin-bottom: 24px;
+/* ===== QUIZ ===== */
+.progress-wrapper { margin-bottom: 20px; }
+.progress-bar { height: 6px; background: #EEE; border-radius: 3px; overflow: hidden; margin-bottom: 8px; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--pink), var(--blue)); border-radius: 3px; transition: width 0.5s ease; width: 0%; }
+.question-header { display: flex; justify-content: space-between; align-items: center; }
+.question-number { font-size: 13px; color: var(--text-light); font-weight: 700; }
+.category-badge {
+  font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 50px;
+  background: linear-gradient(135deg, #FFF0F5, #F0F4FF); color: var(--purple);
 }
-.progress-bar {
-  height: 6px;
-  background: #EEE;
-  border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 8px;
-}
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--pink), var(--blue));
-  border-radius: 3px;
-  transition: width 0.5s ease;
-  width: 0%;
-}
-.question-number {
-  font-size: 13px;
-  color: var(--text-light);
-  font-weight: 700;
-  text-align: right;
-}
-
 .question-card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 28px 22px;
-  box-shadow: var(--shadow);
-  margin-top: 12px;
+  background: var(--card); border-radius: var(--radius); padding: 28px 22px;
+  box-shadow: var(--shadow); margin-top: 12px;
 }
-.scene-emoji {
-  font-size: 40px;
-  margin-bottom: 12px;
-}
-.scenario {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.7;
-  margin-bottom: 24px;
-  color: var(--text);
-}
-
+.scene-emoji { font-size: 40px; margin-bottom: 12px; }
+.scenario { font-size: 15px; font-weight: 700; line-height: 1.7; margin-bottom: 24px; color: var(--text); }
 .options { display: flex; flex-direction: column; gap: 10px; }
-
 .option-btn {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: #F8F9FA;
-  border: 2px solid transparent;
-  border-radius: 14px;
-  padding: 16px 18px;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: inherit;
-  color: var(--text);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  line-height: 1.6;
+  display: block; width: 100%; text-align: left; background: #F8F9FA;
+  border: 2px solid transparent; border-radius: 14px; padding: 15px 16px;
+  font-size: 13.5px; font-weight: 400; font-family: inherit; color: var(--text);
+  cursor: pointer; transition: all 0.2s ease; line-height: 1.6;
   -webkit-tap-highlight-color: transparent;
 }
-.option-btn:active {
-  transform: scale(0.97);
-  background: var(--pink-light);
-  border-color: var(--pink);
-}
-.option-btn.selected {
-  background: var(--pink-light);
-  border-color: var(--pink);
-  font-weight: 700;
-}
+.option-btn:active { transform: scale(0.97); background: var(--pink-light); border-color: var(--pink); }
+.option-btn.selected { background: var(--pink-light); border-color: var(--pink); font-weight: 700; }
 
 /* Free text */
-.free-input-area {
-  margin-top: 4px;
-}
+.free-input-area { margin-top: 4px; }
 .free-input {
-  width: 100%;
-  min-height: 80px;
-  border: 2px solid #EEE;
-  border-radius: 14px;
-  padding: 16px;
-  font-size: 16px;
-  font-family: inherit;
-  color: var(--text);
-  resize: none;
-  outline: none;
-  transition: border-color 0.3s;
-  background: #F8F9FA;
+  width: 100%; min-height: 80px; border: 2px solid #EEE; border-radius: 14px;
+  padding: 16px; font-size: 16px; font-family: inherit; color: var(--text);
+  resize: none; outline: none; transition: border-color 0.3s; background: #F8F9FA;
 }
 .free-input:focus { border-color: var(--pink); background: #FFF; }
 .free-input::placeholder { color: #CCC; }
-
 .btn-submit-free {
-  margin-top: 14px;
-  width: 100%;
-  background: linear-gradient(135deg, var(--pink), var(--purple));
-  color: white;
-  border: none;
-  padding: 16px;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.3s;
-  -webkit-tap-highlight-color: transparent;
+  margin-top: 14px; width: 100%;
+  background: linear-gradient(135deg, var(--pink), var(--purple)); color: white;
+  border: none; padding: 16px; border-radius: 50px; font-size: 16px; font-weight: 700;
+  font-family: inherit; cursor: pointer; transition: all 0.3s; -webkit-tap-highlight-color: transparent;
 }
 .btn-submit-free:active { transform: scale(0.95); }
-.btn-submit-free:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-/* Free text reaction */
-.free-reaction {
-  display: none;
-  text-align: center;
-  padding: 32px 16px;
-  animation: bounceIn 0.5s ease;
-}
+.btn-submit-free:disabled { opacity: 0.4; cursor: not-allowed; }
+.free-reaction { display: none; text-align: center; padding: 32px 16px; animation: bounceIn 0.5s ease; }
 .free-reaction.show { display: block; }
 .free-reaction .reaction-emoji { font-size: 56px; margin-bottom: 12px; }
-.free-reaction .reaction-text {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.6;
-}
+.free-reaction .reaction-text { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.6; }
 
-/* ===== ANALYSIS SCREEN ===== */
-.analysis-content {
-  text-align: center;
-  padding: 40px 20px;
-}
-.analysis-emoji {
-  font-size: 72px;
-  margin-bottom: 24px;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-.analysis-text {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-.analysis-dots span {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--pink);
-}
+/* ===== ANALYSIS ===== */
+.analysis-content { text-align: center; padding: 40px 20px; }
+.analysis-emoji { font-size: 72px; margin-bottom: 24px; animation: pulse 1.5s ease-in-out infinite; }
+.analysis-text { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.analysis-dots span { font-size: 24px; font-weight: 800; color: var(--pink); }
 .analysis-dots span:nth-child(1) { animation: dotBlink 1.2s infinite 0s; }
 .analysis-dots span:nth-child(2) { animation: dotBlink 1.2s infinite 0.2s; }
 .analysis-dots span:nth-child(3) { animation: dotBlink 1.2s infinite 0.4s; }
-
-.analysis-sub {
-  font-size: 14px;
-  color: var(--text-light);
-  margin-top: 20px;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
+.analysis-sub { font-size: 14px; color: var(--text-light); margin-top: 20px; opacity: 0; transition: opacity 0.5s; }
 .analysis-sub.show { opacity: 1; }
 
-/* ===== RESULT SCREEN ===== */
+/* ===== RESULT ===== */
 .result-card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 36px 24px;
-  box-shadow: var(--shadow);
-  text-align: center;
+  background: var(--card); border-radius: var(--radius); padding: 32px 20px;
+  box-shadow: var(--shadow); text-align: center;
 }
-.result-emoji {
-  font-size: 64px;
-  margin-bottom: 8px;
-  animation: bounceIn 0.6s ease 0.3s both;
-}
-.result-title {
-  font-size: 26px;
-  font-weight: 800;
-  margin-bottom: 24px;
-  animation: bounceIn 0.6s ease 0.5s both;
-}
-
-.gauge-wrapper {
-  margin: 0 auto 8px;
-  max-width: 320px;
-  animation: bounceIn 0.6s ease 0.7s both;
-}
-.gauge-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 24px;
-  margin-bottom: 6px;
-}
-.gauge-track {
-  height: 14px;
-  background: #F0F0F0;
-  border-radius: 7px;
-  overflow: hidden;
-  position: relative;
-}
-.gauge-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink));
-  border-radius: 7px;
-  animation: gaugeGrow 1.5s ease 1s both;
-}
+.result-emoji { font-size: 64px; margin-bottom: 8px; animation: bounceIn 0.6s ease 0.3s both; }
+.result-title { font-size: 24px; font-weight: 800; margin-bottom: 20px; animation: bounceIn 0.6s ease 0.5s both; }
+.gauge-wrapper { margin: 0 auto 8px; max-width: 320px; animation: bounceIn 0.6s ease 0.7s both; }
+.gauge-labels { display: flex; justify-content: space-between; font-size: 24px; margin-bottom: 6px; }
+.gauge-track { height: 14px; background: #F0F0F0; border-radius: 7px; overflow: hidden; position: relative; }
+.gauge-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink)); border-radius: 7px; animation: gaugeGrow 1.5s ease 1s both; }
 .gauge-marker {
-  position: absolute;
-  top: -4px;
-  width: 22px;
-  height: 22px;
-  background: white;
-  border: 3px solid var(--pink);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  opacity: 0;
-  transition: opacity 0.3s;
+  position: absolute; top: -4px; width: 22px; height: 22px; background: white;
+  border: 3px solid var(--pink); border-radius: 50%; transform: translateX(-50%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); opacity: 0; transition: opacity 0.3s;
 }
 .gauge-marker.show { opacity: 1; }
-
 .result-percent {
-  font-size: 56px;
-  font-weight: 800;
+  font-size: 52px; font-weight: 800;
   background: linear-gradient(135deg, var(--pink), var(--purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 16px 0 4px;
-  animation: bounceIn 0.6s ease 0.9s both;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin: 12px 0 2px; animation: bounceIn 0.6s ease 0.9s both;
 }
-.result-percent-label {
-  font-size: 14px;
-  color: var(--text-light);
-  margin-bottom: 24px;
-  font-weight: 700;
-}
+.result-percent-label { font-size: 13px; color: var(--text-light); margin-bottom: 20px; font-weight: 700; }
+
+/* Radar chart */
+.radar-section { animation: bounceIn 0.6s ease 1.1s both; margin-bottom: 20px; }
+.radar-title { font-size: 14px; font-weight: 700; color: var(--text-light); margin-bottom: 12px; }
+.radar-canvas-wrapper { display: flex; justify-content: center; }
+canvas#radar-chart { max-width: 100%; }
 
 .result-desc {
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--text);
-  margin-bottom: 24px;
-  text-align: left;
-  background: #FFF5F7;
-  padding: 18px;
-  border-radius: 14px;
-  animation: bounceIn 0.6s ease 1.1s both;
+  font-size: 14px; line-height: 1.8; color: var(--text); margin-bottom: 20px; text-align: left;
+  background: #FFF5F7; padding: 16px; border-radius: 14px; animation: bounceIn 0.6s ease 1.3s both;
 }
-
+.result-advice {
+  font-size: 13px; line-height: 1.8; color: var(--text); margin-bottom: 20px; text-align: left;
+  background: #F0FFF4; padding: 16px; border-radius: 14px; animation: bounceIn 0.6s ease 1.4s both;
+}
+.result-advice-label { font-size: 12px; font-weight: 700; color: #27AE60; margin-bottom: 6px; }
 .result-freetext {
-  text-align: left;
-  background: #F0F4FF;
-  padding: 16px 18px;
-  border-radius: 14px;
-  margin-bottom: 24px;
-  animation: bounceIn 0.6s ease 1.3s both;
+  text-align: left; background: #F0F4FF; padding: 14px 16px; border-radius: 14px;
+  margin-bottom: 20px; animation: bounceIn 0.6s ease 1.5s both;
 }
-.result-freetext-label {
-  font-size: 12px;
-  color: var(--text-light);
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-.result-freetext-quote {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 4px;
-}
-.result-freetext-analysis {
-  font-size: 13px;
-  color: var(--purple);
-  font-weight: 700;
-}
-
+.result-freetext-label { font-size: 12px; color: var(--text-light); font-weight: 700; margin-bottom: 4px; }
+.result-freetext-quote { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.result-freetext-analysis { font-size: 12px; color: var(--purple); font-weight: 700; }
 .result-traits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 32px;
-  animation: bounceIn 0.6s ease 1.5s both;
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  margin-bottom: 28px; animation: bounceIn 0.6s ease 1.6s both;
 }
 .trait-badge {
-  background: linear-gradient(135deg, #FFF0F5, #F0F4FF);
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text);
+  background: linear-gradient(135deg, #FFF0F5, #F0F4FF); padding: 7px 14px;
+  border-radius: 50px; font-size: 12px; font-weight: 700; color: var(--text);
 }
-
 .btn-retry {
-  background: var(--card);
-  color: var(--pink);
-  border: 2px solid var(--pink);
-  padding: 16px 48px;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.3s;
-  -webkit-tap-highlight-color: transparent;
-  animation: bounceIn 0.6s ease 1.7s both;
+  background: var(--card); color: var(--pink); border: 2px solid var(--pink);
+  padding: 14px 44px; border-radius: 50px; font-size: 15px; font-weight: 700;
+  font-family: inherit; cursor: pointer; transition: all 0.3s;
+  -webkit-tap-highlight-color: transparent; animation: bounceIn 0.6s ease 1.8s both;
 }
-.btn-retry:active {
-  transform: scale(0.95);
-  background: var(--pink);
-  color: white;
-}
+.btn-retry:active { transform: scale(0.95); background: var(--pink); color: white; }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- START SCREEN -->
   <div id="start-screen" class="screen active">
     <div class="start-content">
-      <div class="hero-emoji">💭</div>
-      <div class="hero-sub-emoji">
-        <span>❤️</span>
-        <span>🧠</span>
-      </div>
-      <h1>感情ある？<span>診断</span></h1>
+      <div class="hero-emoji">🔮</div>
+      <div class="hero-sub-emoji"><span>❤️</span><span>🧠</span></div>
+      <h1>感情ある？<span>深層診断</span></h1>
       <p class="subtitle">
-        あなたは<em>感情タイプ</em>？<em>論理タイプ</em>？<br>
-        10問でサクッと診断！
+        表面じゃない、あなたの<em>本質</em>を探る。<br>
+        <em>感情タイプ</em>？<em>論理タイプ</em>？15問で深掘り！
       </p>
-      <button class="btn-start" onclick="startQuiz()">はじめる</button>
+      <div class="start-intro">
+        この診断は、<strong>心理学の視点</strong>からあなたの感情パターンを<strong>5つの次元</strong>で分析します。<br><br>
+        🪞 自己認識 &nbsp; 💗 共感力 &nbsp; 🔥 感情処理<br>
+        👥 対人感受性 &nbsp; ⚖️ 価値観<br><br>
+        正解はありません。<strong>直感で、正直に</strong>答えてください。
+      </div>
+      <button class="btn-start" onclick="startQuiz()">診断をはじめる</button>
     </div>
   </div>
 
-  <!-- QUIZ SCREEN -->
   <div id="quiz-screen" class="screen">
     <div class="progress-wrapper">
       <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-      <div class="question-number" id="question-number"></div>
+      <div class="question-header">
+        <div class="question-number" id="question-number"></div>
+        <div class="category-badge" id="category-badge"></div>
+      </div>
     </div>
     <div class="question-card" id="question-card"></div>
   </div>
 
-  <!-- ANALYSIS SCREEN -->
   <div id="analysis-screen" class="screen">
     <div class="analysis-content">
-      <div class="analysis-emoji">🔍</div>
-      <div class="analysis-text" id="analysis-text">あなたの回答をスキャン中</div>
+      <div class="analysis-emoji">🔮</div>
+      <div class="analysis-text" id="analysis-text">深層心理をスキャン中</div>
       <div class="analysis-dots"><span>.</span><span>.</span><span>.</span></div>
-      <div class="analysis-sub" id="analysis-sub">感情センサー起動中...</div>
+      <div class="analysis-sub" id="analysis-sub">5つの次元で分析中...</div>
     </div>
   </div>
 
-  <!-- RESULT SCREEN -->
   <div id="result-screen" class="screen">
     <div class="result-card" id="result-card"></div>
   </div>
@@ -507,162 +264,216 @@ body {
 </div>
 
 <script>
+// ===== QUESTION DATA =====
 const questions = [
   {
-    type: 'choice',
-    emoji: '💬',
-    scenario: 'パートナーや友人から\n「今日、仕事で怒られちゃった…」\nとLINEが来た。あなたの第一声は？',
+    type: 'choice', emoji: '🪞', category: '自己認識',
+    scenario: '親しい人に「最近ちょっと\n怒りっぽくない？」と言われた。\nあなたの内心は？',
     options: [
-      { text: '「えー！大丈夫？つらかったね…」', score: 4 },
-      { text: '「お疲れさま。何があったの？」', score: 3 },
-      { text: '「何で怒られたの？」', score: 2 },
-      { text: '「原因わかってるなら、次気をつければOKでしょ」', score: 1 },
+      { text: 'えっ、そう見えてた？嫌な思いさせてたかも…', score: 4 },
+      { text: '言われてみれば…最近ストレス溜まってたかも', score: 3 },
+      { text: 'そうかな？自分ではそう思わないけど', score: 2 },
+      { text: '怒ってるんじゃなくて、正しいことを言ってるだけ', score: 1 },
     ]
   },
   {
-    type: 'choice',
-    emoji: '🏢',
-    scenario: '部下がプレゼンで大失敗。\nめちゃくちゃ落ち込んでいる。あなたは？',
+    type: 'choice', emoji: '🌙', category: '感情処理',
+    scenario: '仕事で大きな失敗をした夜。\n布団の中で、あなたの頭に\n流れているのは？',
     options: [
-      { text: '「緊張するよね。大丈夫、次があるよ！」とまず励ます', score: 4 },
-      { text: '「惜しかったよ。どこが難しかった？」と聞いてみる', score: 3 },
-      { text: '「ここを直せばもっと良くなるよ」と改善点を伝える', score: 2 },
-      { text: '「振り返りを一緒にやろう」と仕組みで解決する', score: 1 },
+      { text: 'あの時の相手の表情や声のトーンが何度もリプレイされる', score: 4 },
+      { text: '「あの人、怒ってるかな…嫌われてないかな」と不安になる', score: 3 },
+      { text: 'なぜ失敗したか原因を分析して、次の対策を考えている', score: 2 },
+      { text: '「終わったことは仕方ない」と切り替えて寝ようとする', score: 1 },
     ]
   },
   {
-    type: 'choice',
-    emoji: '⚖️',
-    scenario: '人生の大事な決断。\n最終的にあなたが頼りにするのは？',
+    type: 'choice', emoji: '🚃', category: '共感力',
+    scenario: '電車で隣に座った人が、\n静かに涙を流している。\nあなたの内側で起きていることは？',
     options: [
-      { text: '自分の直感。ピンときたかどうか', score: 4 },
-      { text: '信頼できる人の「いいと思う！」という言葉', score: 3 },
-      { text: 'メリット・デメリットの比較表', score: 2 },
-      { text: 'データや数字、客観的な根拠', score: 1 },
+      { text: '胸がキュッとなる。何があったんだろう…大丈夫かな', score: 4 },
+      { text: '気になって少し落ち着かなくなる。でも声はかけられない', score: 3 },
+      { text: '一瞬気になるけど、自分の世界に戻る', score: 2 },
+      { text: '泣いている理由が気になる（仕事？恋愛？映画の感動？）', score: 1 },
     ]
   },
   {
-    type: 'choice',
-    emoji: '👥',
-    scenario: 'チームの雰囲気が\nなんか最近ギスギスしてる…\nあなたの動きは？',
+    type: 'choice', emoji: '⚖️', category: '価値観',
+    scenario: '「正しいこと」と「優しいこと」が\n矛盾する場面。あなたは？',
     options: [
-      { text: 'ひとりひとりに「最近どう？」とさりげなく声をかける', score: 4 },
-      { text: 'ランチや飲みに誘って場を和ませる', score: 3 },
-      { text: '1on1ミーティングを設定して話を聞く', score: 2 },
-      { text: '業務フローを見直して、そもそもの原因を特定する', score: 1 },
+      { text: '迷わず優しさを選ぶ。傷つけたくない', score: 4 },
+      { text: '悩むけど、目の前の相手の気持ちを優先しがち', score: 3 },
+      { text: '悩むけど、長期的に見て正しい方を選びがち', score: 2 },
+      { text: '正しいことを伝えるのが本当の優しさだと思う', score: 1 },
     ]
   },
   {
-    type: 'choice',
-    emoji: '☕',
-    scenario: '友達が「転職しようか\n迷ってるんだよね…」と相談してきた。',
+    type: 'choice', emoji: '💔', category: '価値観',
+    scenario: '信頼していた人に裏切られた。\nあなたの最初の反応に近いのは？',
     options: [
-      { text: '「わかるー！その気持ちめっちゃわかる」とまず共感', score: 4 },
-      { text: '「いろいろあるよね。何が一番モヤモヤする？」と聞く', score: 3 },
-      { text: '「転職先の条件ってどんな感じ？」と情報収集', score: 2 },
-      { text: '「年収とか成長性で比較表作ってみたら？」と提案', score: 1 },
+      { text: 'ショックで頭が真っ白。しばらく何も考えられない', score: 4 },
+      { text: '悲しみと怒りが交互にやってくる', score: 3 },
+      { text: '動揺しつつも「冷静になろう」と自分に言い聞かせる', score: 2 },
+      { text: '「なぜこうなったか」を分析し始める', score: 1 },
     ]
   },
   {
-    type: 'free',
-    emoji: '😱',
-    scenario: '部下が大事な商談に\n15分遅刻してきた！\n\nあなたが最初に言うひとことを\nそのまま書いてください。',
-    placeholder: 'ここに入力...',
-  },
-  {
-    type: 'choice',
-    emoji: '🎬',
-    scenario: '映画のラストシーン。\n周りが泣いている。あなたは…？',
+    type: 'choice', emoji: '📞', category: '共感力',
+    scenario: '友人が泣きながら\n「もう会社辞めたい」と電話してきた。\nあなたの頭の中で最初に動くのは？',
     options: [
-      { text: '一緒に号泣。ティッシュください', score: 4 },
-      { text: 'ウルッとくるけど、なんとか我慢してる', score: 3 },
-      { text: '「いい映画だったね」と冷静に感想を言う', score: 2 },
-      { text: '「あの伏線の回収すごかったな」と分析モードに入る', score: 1 },
+      { text: '相手の辛さが自分にも流れ込んでくるような感覚', score: 4 },
+      { text: '「何がそこまで辛いんだろう」と相手の立場を想像する', score: 3 },
+      { text: '辞めた場合のリスクとメリットが頭に浮かぶ', score: 2 },
+      { text: '「まず落ち着いて」と状況を整理してあげたくなる', score: 1 },
     ]
   },
   {
-    type: 'choice',
-    emoji: '🤝',
-    scenario: '研修で初対面の人とペアワーク開始。\nあなたがまず意識することは？',
+    type: 'free', emoji: '👶', category: '共感力',
+    scenario: '目の前で小さい子が転んで\n泣いています。親は見当たりません。\n\nあなたの頭に最初に浮かんだ言葉を\nそのまま書いてください。',
+    placeholder: '最初に浮かんだ言葉をそのまま...',
+  },
+  {
+    type: 'choice', emoji: '🎭', category: '自己認識',
+    scenario: '「今のあなたの気持ちを\n一言で表現してください」\nと急に振られた。あなたは？',
     options: [
-      { text: '相手がリラックスできるように笑顔で雑談から入る', score: 4 },
-      { text: '共通点を見つけて距離を縮める', score: 3 },
-      { text: 'お互いの役割を決めてスムーズに進める', score: 2 },
-      { text: 'まずゴールと進め方を確認する', score: 1 },
+      { text: 'パッと言葉が出る。気持ちを表現するのは自然なこと', score: 4 },
+      { text: '少し考えれば出る。でもピッタリの言葉を探すのに時間がかかる', score: 3 },
+      { text: '「普通」「まあまあ」くらいしか出てこない…', score: 2 },
+      { text: '「気持ち？…特にないけど」となる', score: 1 },
     ]
   },
   {
-    type: 'choice',
-    emoji: '💡',
-    scenario: '自分のアイデアが\n会議でバッサリ却下された。\nそのときの心の中は？',
+    type: 'choice', emoji: '🔥', category: '感情処理',
+    scenario: '怒りを感じたとき、\nあなたの中で起きていることは？',
     options: [
-      { text: '正直かなりヘコむ…しばらく引きずる', score: 4 },
-      { text: 'モヤッとするけど、相手の意見も聞いてみよう', score: 3 },
-      { text: 'なるほど、どこがダメだったか冷静に分析しよう', score: 2 },
-      { text: 'データを集めて、次の会議でリベンジだ', score: 1 },
+      { text: '感情が先に出て、後から「言いすぎたかも」と後悔しがち', score: 4 },
+      { text: '怒りを感じつつも、なんとか表現を選ぼうとする', score: 3 },
+      { text: '一度飲み込んで、冷静に対処法を考える', score: 2 },
+      { text: 'そもそもあまり怒りを感じない。「なぜこうなったか」に興味が向く', score: 1 },
     ]
   },
   {
-    type: 'choice',
-    emoji: '🌙',
-    scenario: '日曜の夜。\nふと頭に浮かぶことは？',
+    type: 'choice', emoji: '🏆', category: '対人感受性',
+    scenario: 'チームで大きな成果を出した。\nあなたが一番嬉しいのは？',
     options: [
-      { text: '「あの人、最近元気なかったな…大丈夫かな」', score: 4 },
-      { text: '「明日みんなに会えるの楽しみだな」', score: 3 },
-      { text: '「来週のスケジュール確認しとこ」', score: 2 },
-      { text: '「月曜のタスクを効率よく片付ける方法は…」', score: 1 },
+      { text: 'メンバーが「このチームでよかった」と言ってくれたこと', score: 4 },
+      { text: 'みんなで苦労した過程そのもの', score: 3 },
+      { text: '目標を達成できたという事実', score: 2 },
+      { text: '自分の判断や戦略が正しかったと証明できたこと', score: 1 },
     ]
   },
+  {
+    type: 'choice', emoji: '💭', category: '感情処理',
+    scenario: '大切な人との別れの場面。\nあなたの中で一番強く残るのは？',
+    options: [
+      { text: 'その時感じた胸の痛みや涙の感覚', score: 4 },
+      { text: '最後に交わした言葉や表情', score: 3 },
+      { text: '「もっとこうすればよかった」という反省', score: 2 },
+      { text: '「次にどう前に進むか」という今後のこと', score: 1 },
+    ]
+  },
+  {
+    type: 'choice', emoji: '🏷️', category: '価値観',
+    scenario: '「感情的な人」と聞いて、\nあなたが最初に浮かべるイメージは？',
+    options: [
+      { text: '人間味があって素敵な人', score: 4 },
+      { text: '共感力が高い人', score: 3 },
+      { text: 'ちょっと扱いにくい人', score: 2 },
+      { text: '合理的じゃない人', score: 1 },
+    ]
+  },
+  {
+    type: 'choice', emoji: '🤫', category: '対人感受性',
+    scenario: '部下がこっそり「実は転職を\n考えてるんです」と打ち明けてきた。\nあなたの最初の内心は？',
+    options: [
+      { text: '寂しい…この人がいなくなるなんて', score: 4 },
+      { text: '何か辛いことがあったのかな、ちゃんと聞いてあげよう', score: 3 },
+      { text: '引き留めるべきか、送り出すべきか判断しなきゃ', score: 2 },
+      { text: '業務の引き継ぎと後任のことが頭をよぎる', score: 1 },
+    ]
+  },
+  {
+    type: 'choice', emoji: '🧘', category: '自己認識',
+    scenario: '一人になったとき、\nあなたが無意識にやっていることは？',
+    options: [
+      { text: '最近あった出来事を思い出して、感情を味わい直している', score: 4 },
+      { text: '誰かにLINEしたくなる。人とつながっていたい', score: 3 },
+      { text: '趣味や好きなことに没頭する', score: 2 },
+      { text: 'ToDoを整理したり、次の予定を考えたりする', score: 1 },
+    ]
+  },
+  {
+    type: 'choice', emoji: '🔮', category: 'メタ認知',
+    scenario: '最後の質問。\nこの診断をやりながら、\nあなたが一番感じていたことは？',
+    options: [
+      { text: '自分のことを振り返る時間が楽しかった', score: 4 },
+      { text: '「自分ってこういうタイプなんだ」と発見があった', score: 3 },
+      { text: '質問の意図や傾向を分析しながら答えていた', score: 2 },
+      { text: '早く結果が知りたくてサクサク進めた', score: 1 },
+    ]
+  },
+];
+
+// Dimension mapping (question indices → dimension)
+const dimensionConfig = [
+  { name: '共感力',     qIndices: [2, 5, 6] },
+  { name: '感情処理',   qIndices: [1, 8, 10] },
+  { name: '自己認識',   qIndices: [7, 13, 14] },
+  { name: '対人感受性', qIndices: [0, 9, 12] },
+  { name: '価値観',     qIndices: [3, 4, 11] },
 ];
 
 // Result tiers
 const resultTiers = [
   {
-    min: 85, emoji: '🫶', title: '感情の塊',
-    desc: 'あなたの共感力、もはや超能力。相手が話し始める前に気持ちを察してるレベル。周りの人はあなたに癒されてるはず。ただ、たまに他人の感情を背負いすぎて疲れることもあるので、自分のケアも忘れずに！',
-    traits: ['共感力 MAX', '空気読み名人', '相談されがち', 'もらい泣き常習犯']
+    min: 85, emoji: '🫶', title: 'エモーショナル・コア',
+    desc: 'あなたの世界は感情で彩られている。人の気持ちを自分のことのように感じ取れる、高い「情動的共感力」の持ち主。周りの人はあなたの存在に救われている。ただし、他者の感情を吸収しすぎて疲れることも。',
+    advice: '「これは自分の感情？相手の感情？」と問いかけるだけで、感情に振り回されにくくなります。境界線を意識するのがポイント。',
+    traits: ['情動的共感力◎', '感情の言語化が得意', '他者の感情を吸収しやすい', 'ケアラー気質']
   },
   {
-    min: 70, emoji: '💗', title: 'ハートフルリーダー',
-    desc: '感情アンテナ高め。チームの空気を読むのが得意で、人間関係の潤滑油的存在。「この人がいると安心する」と思われるタイプ。論理的な部分もちゃんとあるから、バランス感覚も◎。',
-    traits: ['感情アンテナ高め', '安心感の塊', '聞き上手', '人間関係の達人']
+    min: 70, emoji: '💗', title: 'エンパス・ハイブリッド',
+    desc: '論理的に考える力もあるのに、最後は心で決めがち。相手の立場に立って考えられる「認知的共感力」が高い。相談役として最強のポジション。感情に流されすぎないよう意識するだけで、もっとバランスが取れる。',
+    advice: '感情で判断した後に、5分だけ論理で検証する習慣をつけると最強になれます。「心→頭」の順番を意識して。',
+    traits: ['認知的共感力◎', '感情ベースの意思決定', '相談されやすい', '場の空気に敏感']
   },
   {
-    min: 50, emoji: '⚖️', title: 'バランスの達人',
-    desc: '感情と論理のハイブリッド型。場面に応じて使い分けられる器用なタイプ。共感するときはしっかり共感して、分析するときは冷静になれる。研修ではチームで一番重宝される存在かも。',
-    traits: ['TPO使い分け型', '器用なハイブリッド', '調整役タイプ', '万能プレイヤー']
+    min: 50, emoji: '⚖️', title: 'デュアルプロセッサー',
+    desc: '感情で感じたことを、論理で処理できるタイプ。心が動いても、頭で整理してから行動に移せる。これは非常に高いEQ（感情知性）の表れ。どちらか一方に偏らない強さがある。',
+    advice: '意識的に「今は感情モード」「今は論理モード」と切り替えると、さらに力を発揮できます。あなたのバランス感覚は最大の武器。',
+    traits: ['EQ高め', '感情と論理の切替上手', '状況適応力◎', 'バランス型リーダー']
   },
   {
-    min: 30, emoji: '🧠', title: 'ロジカルモンスター',
-    desc: '頭脳派。効率と合理性を愛する人。問題が起きたら感情より先に解決策が浮かぶタイプ。でも感情がないわけじゃない…たぶん。きっと。おそらく。心の奥にはちゃんと温かいものがあるはず！',
-    traits: ['分析力おばけ', '効率の鬼', '冷静沈着', '解決策マシーン']
+    min: 30, emoji: '🧠', title: 'ロジカル・ファースト',
+    desc: '感情がないわけじゃない。ただ、感情より先に分析や論理が動く。問題解決能力が高く、冷静な判断ができるのが強み。時々「冷たい」と思われることがあるかもしれないが、あなたなりの表現方法がある。',
+    advice: '結論を出す前に「相手は今どう感じているだろう？」と3秒だけ考えてみてください。それだけで人間関係が変わります。',
+    traits: ['分析力◎', '冷静な判断力', '感情表現は控えめ', '問題解決型']
   },
   {
-    min: 0, emoji: '🤖', title: 'ヒューマンAI',
-    desc: 'あなた、本当に人間ですか？感情回路がスリープモードの可能性あり。「で、結論は？」が口癖ではないでしょうか。でもそれはあなたの最大の強み。ブレない判断力でチームを支える頼れる存在です。',
-    traits: ['感情回路スリープ中', 'ブレない軸', '結論ファースト', '判断力の権化']
+    min: 0, emoji: '🤖', title: 'ウルトラ・ラショナル',
+    desc: '極めて合理的な思考の持ち主。感情に振り回されることが少なく、常にクリアな判断ができる。ただし、人は論理だけでは動かない。あなたの冷静さは最大の強みだが、時に「温度」を意識的に足すとさらに強い。',
+    advice: '感情を「データ」として活用してみましょう。「この人は今こう感じている→だからこう対応すると効果的」は、あなたの得意分野のはず。',
+    traits: ['超合理的思考', 'ブレない判断軸', '感情の影響を受けにくい', '効率重視']
   },
 ];
 
 // Free text analysis
 function analyzeFreeText(text) {
-  if (!text || text.trim().length === 0) return { score: 3, emoji: '🤔', msg: '無言の圧…！それもひとつの回答ですね' };
-  const t = text.toLowerCase();
-  const emotional = ['大丈夫', 'だいじょうぶ', '心配', 'しんぱい', '何かあった', 'なにかあった', '怪我', 'けが', '事故', 'じこ', '無事', 'ぶじ', '体調', 'たいちょう'];
-  const logical = ['なぜ', 'なんで', '何で', '理由', 'りゆう', '遅刻', 'ちこく', '遅れ', 'おくれ', 'ダメ', 'だめ', '困る', 'こまる', '報告', 'ほうこく', '反省', 'はんせい', '連絡', 'れんらく', '時間', 'じかん', 'ありえない'];
-  const softEmotional = ['お疲れ', 'おつかれ', '焦', 'あせ', '慌', 'あわて', '大変', 'たいへん', '急', 'いそ'];
-  const softLogical = ['どうした', '何が', 'なにが', '状況', 'じょうきょう', '説明', 'せつめい', '事情', 'じじょう'];
-
-  for (const kw of emotional) { if (t.includes(kw)) return { score: 4, emoji: '❤️', msg: 'まず相手を心配するタイプ！\n優しさが溢れてます' }; }
-  for (const kw of logical) { if (t.includes(kw)) return { score: 1, emoji: '🧊', msg: 'まず原因を追求するタイプ！\nクールですね〜' }; }
-  for (const kw of softEmotional) { if (t.includes(kw)) return { score: 3, emoji: '🥺', msg: '相手を気遣うタイプですね！\nさりげない優しさ' }; }
-  for (const kw of softLogical) { if (t.includes(kw)) return { score: 2, emoji: '🤔', msg: '状況把握から入るタイプ！\n冷静ですね' }; }
-  return { score: 3, emoji: '😎', msg: '独自の切り返し！\nなかなかのセンスです' };
+  if (!text || text.trim().length === 0) return { score: 3, emoji: '🤔', msg: '沈黙…！それも深い回答です' };
+  const t = text;
+  const emotional = ['大丈夫','だいじょうぶ','痛い','いたい','泣かないで','なかないで','よしよし','いい子','えらい','かわいそう','ごめんね','痛くない'];
+  const logical = ['どこ','親は','親が','おや','立って','立ちな','起き','探','周り','見て','確認','誰か','交番','警察'];
+  const softEmotional = ['怪我','けが','ケガ','びっくり','驚','血','おいで','こっち','抱'];
+  const softLogical = ['何が','どう','状況','転ん','ぶつけ','どこか'];
+  for (const kw of emotional) { if (t.includes(kw)) return { score: 4, emoji: '❤️', msg: 'まず気持ちに寄り添う、温かい反応ですね' }; }
+  for (const kw of logical) { if (t.includes(kw)) return { score: 1, emoji: '🧊', msg: 'まず状況把握から入る、冷静な反応ですね' }; }
+  for (const kw of softEmotional) { if (t.includes(kw)) return { score: 3, emoji: '🥺', msg: '心配が先に来る、優しい反応ですね' }; }
+  for (const kw of softLogical) { if (t.includes(kw)) return { score: 2, emoji: '🤔', msg: '原因を把握しようとする、分析的な反応ですね' }; }
+  return { score: 3, emoji: '😊', msg: '独自のアプローチ！その一言にあなたが出てます' };
 }
 
-// Game state
+// ===== GAME STATE =====
 let currentQuestion = 0;
-let totalScore = 0;
+let scores = [];
 let freeTextResponse = '';
 let freeTextAnalysis = null;
 let isTransitioning = false;
@@ -670,17 +481,21 @@ let isTransitioning = false;
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   const screen = document.getElementById(id);
-  screen.classList.remove('active');
   void screen.offsetWidth;
   screen.classList.add('active');
 }
 
 function startQuiz() {
   currentQuestion = 0;
-  totalScore = 0;
+  scores = [];
   freeTextResponse = '';
   freeTextAnalysis = null;
   isTransitioning = false;
+  document.getElementById('analysis-text').textContent = '深層心理をスキャン中';
+  document.querySelector('#analysis-screen .analysis-emoji').textContent = '🔮';
+  const sub = document.getElementById('analysis-sub');
+  sub.textContent = '5つの次元で分析中...';
+  sub.classList.remove('show');
   showScreen('quiz-screen');
   renderQuestion();
 }
@@ -688,10 +503,10 @@ function startQuiz() {
 function renderQuestion() {
   const q = questions[currentQuestion];
   const total = questions.length;
-  const progressPct = ((currentQuestion) / total) * 100;
-
-  document.getElementById('progress-fill').style.width = progressPct + '%';
+  const pct = (currentQuestion / total) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('question-number').textContent = `Q${currentQuestion + 1} / ${total}`;
+  document.getElementById('category-badge').textContent = q.category;
 
   const card = document.getElementById('question-card');
   card.style.animation = 'none';
@@ -701,14 +516,12 @@ function renderQuestion() {
   const scenarioHtml = q.scenario.replace(/\n/g, '<br>');
 
   if (q.type === 'choice') {
-    const optionsHtml = q.options.map((opt, i) =>
-      `<button class="option-btn" onclick="selectOption(${i})">${opt.text}</button>`
-    ).join('');
     card.innerHTML = `
       <div class="scene-emoji">${q.emoji}</div>
       <p class="scenario">${scenarioHtml}</p>
-      <div class="options">${optionsHtml}</div>
-    `;
+      <div class="options">${q.options.map((opt, i) =>
+        `<button class="option-btn" onclick="selectOption(${i})">${opt.text}</button>`
+      ).join('')}</div>`;
   } else {
     card.innerHTML = `
       <div class="scene-emoji">${q.emoji}</div>
@@ -720,13 +533,10 @@ function renderQuestion() {
       <div class="free-reaction" id="free-reaction">
         <div class="reaction-emoji" id="reaction-emoji"></div>
         <div class="reaction-text" id="reaction-text"></div>
-      </div>
-    `;
+      </div>`;
     const input = document.getElementById('free-input');
     const btn = document.getElementById('btn-submit-free');
-    input.addEventListener('input', () => {
-      btn.disabled = input.value.trim().length === 0;
-    });
+    input.addEventListener('input', () => { btn.disabled = input.value.trim().length === 0; });
     setTimeout(() => input.focus(), 400);
   }
 }
@@ -734,139 +544,214 @@ function renderQuestion() {
 function selectOption(index) {
   if (isTransitioning) return;
   isTransitioning = true;
-
   const q = questions[currentQuestion];
-  const score = q.options[index].score;
-  totalScore += score;
-
+  scores.push(q.options[index].score);
   const btns = document.querySelectorAll('.option-btn');
   btns[index].classList.add('selected');
   btns.forEach(b => b.style.pointerEvents = 'none');
-
-  setTimeout(() => {
-    currentQuestion++;
-    isTransitioning = false;
-    if (currentQuestion < questions.length) {
-      renderQuestion();
-    } else {
-      showAnalysis();
-    }
-  }, 350);
+  setTimeout(() => { currentQuestion++; isTransitioning = false; nextOrFinish(); }, 350);
 }
 
 function submitFreeText() {
   if (isTransitioning) return;
   isTransitioning = true;
-
-  const input = document.getElementById('free-input');
-  const text = input.value.trim();
+  const text = document.getElementById('free-input').value.trim();
   freeTextResponse = text;
   freeTextAnalysis = analyzeFreeText(text);
-  totalScore += freeTextAnalysis.score;
-
-  // Show reaction
-  const inputArea = document.querySelector('.free-input-area');
-  inputArea.style.display = 'none';
+  scores.push(freeTextAnalysis.score);
+  document.querySelector('.free-input-area').style.display = 'none';
   const reaction = document.getElementById('free-reaction');
   document.getElementById('reaction-emoji').textContent = freeTextAnalysis.emoji;
   document.getElementById('reaction-text').innerHTML = freeTextAnalysis.msg.replace(/\n/g, '<br>');
   reaction.classList.add('show');
+  setTimeout(() => { currentQuestion++; isTransitioning = false; nextOrFinish(); }, 1800);
+}
 
-  setTimeout(() => {
-    currentQuestion++;
-    isTransitioning = false;
-    if (currentQuestion < questions.length) {
-      renderQuestion();
-    } else {
-      showAnalysis();
-    }
-  }, 1800);
+function nextOrFinish() {
+  if (currentQuestion < questions.length) renderQuestion();
+  else showAnalysis();
 }
 
 function showAnalysis() {
   showScreen('analysis-screen');
   const sub = document.getElementById('analysis-sub');
-
-  setTimeout(() => { sub.classList.add('show'); }, 1000);
+  setTimeout(() => sub.classList.add('show'), 1000);
   setTimeout(() => {
     document.getElementById('analysis-text').textContent = '診断完了！';
-    document.querySelector('.analysis-emoji').textContent = '✨';
+    document.querySelector('#analysis-screen .analysis-emoji').textContent = '✨';
     sub.textContent = '結果を表示します...';
-  }, 2200);
-  setTimeout(() => { showResult(); }, 3000);
+  }, 2500);
+  setTimeout(() => showResult(), 3500);
 }
 
 function showResult() {
-  // Calculate percentage: score range is 10-40, map to 0-100
-  const minScore = questions.length * 1;
-  const maxScore = questions.length * 4;
-  const pct = Math.round(((totalScore - minScore) / (maxScore - minScore)) * 100);
+  const totalScore = scores.reduce((a, b) => a + b, 0);
+  const minS = questions.length;
+  const maxS = questions.length * 4;
+  const pct = Math.round(((totalScore - minS) / (maxS - minS)) * 100);
 
-  // Find tier
+  // Dimension scores
+  const dimScores = dimensionConfig.map(dim => {
+    const avg = dim.qIndices.reduce((sum, qi) => sum + (scores[qi] || 2.5), 0) / dim.qIndices.length;
+    return Math.round(((avg - 1) / 3) * 100);
+  });
+
   let tier = resultTiers[resultTiers.length - 1];
-  for (const t of resultTiers) {
-    if (pct >= t.min) { tier = t; break; }
-  }
+  for (const t of resultTiers) { if (pct >= t.min) { tier = t; break; } }
 
-  const card = document.getElementById('result-card');
-
-  const freeTextSection = freeTextResponse ? `
+  const freeSection = freeTextResponse ? `
     <div class="result-freetext">
-      <div class="result-freetext-label">💬 商談遅刻への一言</div>
+      <div class="result-freetext-label">👶 泣いている子への一言</div>
       <div class="result-freetext-quote">「${escapeHtml(freeTextResponse)}」</div>
-      <div class="result-freetext-analysis">${freeTextAnalysis.emoji} ${freeTextAnalysis.msg.replace(/\n/g, ' ')}</div>
-    </div>
-  ` : '';
+      <div class="result-freetext-analysis">${freeTextAnalysis.emoji} ${freeTextAnalysis.msg}</div>
+    </div>` : '';
 
-  const traitsHtml = tier.traits.map(t => `<span class="trait-badge">${t}</span>`).join('');
-
-  card.innerHTML = `
+  document.getElementById('result-card').innerHTML = `
     <div class="result-emoji">${tier.emoji}</div>
     <div class="result-title">${tier.title}</div>
     <div class="gauge-wrapper">
       <div class="gauge-labels"><span>🧠</span><span>❤️</span></div>
       <div class="gauge-track">
-        <div class="gauge-fill" style="width: ${pct}%"></div>
-        <div class="gauge-marker" id="gauge-marker" style="left: ${pct}%"></div>
+        <div class="gauge-fill" style="width:${pct}%"></div>
+        <div class="gauge-marker" id="gauge-marker" style="left:${pct}%"></div>
       </div>
     </div>
     <div class="result-percent" id="result-percent">0%</div>
     <div class="result-percent-label">感情度</div>
+    <div class="radar-section">
+      <div class="radar-title">🔍 5次元分析</div>
+      <div class="radar-canvas-wrapper">
+        <canvas id="radar-chart" width="280" height="280" style="width:280px;height:280px;"></canvas>
+      </div>
+    </div>
     <div class="result-desc">${tier.desc}</div>
-    ${freeTextSection}
-    <div class="result-traits">${traitsHtml}</div>
-    <button class="btn-retry" onclick="startQuiz()">もう一度やる</button>
-  `;
+    <div class="result-advice">
+      <div class="result-advice-label">💡 あなたへのヒント</div>
+      ${tier.advice}
+    </div>
+    ${freeSection}
+    <div class="result-traits">${tier.traits.map(t => `<span class="trait-badge">${t}</span>`).join('')}</div>
+    <button class="btn-retry" onclick="startQuiz()">もう一度やる</button>`;
 
   showScreen('result-screen');
 
-  // Animate percentage counter
   setTimeout(() => {
     animateCounter(0, pct, 1500);
-    setTimeout(() => {
-      document.getElementById('gauge-marker').classList.add('show');
-    }, 1600);
+    setTimeout(() => document.getElementById('gauge-marker').classList.add('show'), 1600);
   }, 800);
+
+  setTimeout(() => drawRadarAnimated(dimScores), 1200);
+}
+
+// ===== RADAR CHART =====
+function drawRadarAnimated(dimScores) {
+  const canvas = document.getElementById('radar-chart');
+  if (!canvas) return;
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = 280 * dpr;
+  canvas.height = 280 * dpr;
+  canvas.style.width = '280px';
+  canvas.style.height = '280px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const cx = 140, cy = 148, radius = 100, n = 5;
+  const angleStep = (Math.PI * 2) / n;
+  const startAngle = -Math.PI / 2;
+  const labels = dimensionConfig.map(d => d.name);
+  const duration = 1200;
+  const start = performance.now();
+
+  function draw(progress) {
+    ctx.clearRect(0, 0, 280, 280);
+    // Grid
+    for (let level = 1; level <= 3; level++) {
+      const r = radius * (level / 3);
+      ctx.beginPath();
+      for (let i = 0; i < n; i++) {
+        const a = startAngle + i * angleStep;
+        const x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.strokeStyle = '#E8E8E8';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    // Axes
+    for (let i = 0; i < n; i++) {
+      const a = startAngle + i * angleStep;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + Math.cos(a) * radius, cy + Math.sin(a) * radius);
+      ctx.strokeStyle = '#E8E8E8';
+      ctx.stroke();
+    }
+    // Data area
+    ctx.beginPath();
+    for (let i = 0; i < n; i++) {
+      const a = startAngle + i * angleStep;
+      const r2 = radius * (dimScores[i] / 100) * progress;
+      const x = cx + Math.cos(a) * r2, y = cy + Math.sin(a) * r2;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(255,107,138,0.15)';
+    ctx.fill();
+    ctx.strokeStyle = '#FF6B8A';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    // Data points
+    for (let i = 0; i < n; i++) {
+      const a = startAngle + i * angleStep;
+      const r2 = radius * (dimScores[i] / 100) * progress;
+      ctx.beginPath();
+      ctx.arc(cx + Math.cos(a) * r2, cy + Math.sin(a) * r2, 4, 0, Math.PI * 2);
+      ctx.fillStyle = '#FF6B8A';
+      ctx.fill();
+    }
+    // Labels + scores
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (let i = 0; i < n; i++) {
+      const a = startAngle + i * angleStep;
+      const lr = radius + 28;
+      const lx = cx + Math.cos(a) * lr, ly = cy + Math.sin(a) * lr;
+      ctx.font = '700 11px "M PLUS Rounded 1c", sans-serif';
+      ctx.fillStyle = '#2D3436';
+      ctx.fillText(labels[i], lx, ly - 7);
+      ctx.font = '800 11px "M PLUS Rounded 1c", sans-serif';
+      ctx.fillStyle = '#FF6B8A';
+      ctx.fillText(Math.round(dimScores[i] * progress) + '%', lx, ly + 8);
+    }
+  }
+
+  function animate(now) {
+    const elapsed = now - start;
+    const p = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    draw(eased);
+    if (p < 1) requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
 }
 
 function animateCounter(from, to, duration) {
   const el = document.getElementById('result-percent');
   const start = performance.now();
   function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(from + (to - from) * eased);
-    el.textContent = current + '%';
-    if (progress < 1) requestAnimationFrame(update);
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(from + (to - from) * eased) + '%';
+    if (p < 1) requestAnimationFrame(update);
   }
   requestAnimationFrame(update);
 }
 
 function escapeHtml(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
 }
 </script>
 </body>
