@@ -10,209 +10,125 @@
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --pink: #FF6B8A;
-  --pink-light: #FFB3C6;
-  --blue: #8EC5FC;
-  --blue-light: #D4EAFF;
-  --cream: #FFF9F0;
-  --purple: #B8A9E8;
-  --yellow: #FFD93D;
-  --text: #2D3436;
-  --text-light: #636E72;
-  --card: #FFFFFF;
-  --shadow: 0 4px 20px rgba(0,0,0,0.08);
-  --radius: 20px;
+  --pink:#FF6B8A;--pink-light:#FFB3C6;--blue:#8EC5FC;--purple:#B8A9E8;
+  --text:#2D3436;--text-light:#636E72;--card:#FFFFFF;
+  --shadow:0 4px 20px rgba(0,0,0,0.08);--radius:20px;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  background: linear-gradient(135deg, #FFF0F5 0%, #F0F4FF 50%, #FFF9F0 100%);
-  min-height: 100dvh;
-  color: var(--text);
-  overflow-x: hidden;
-}
-.container {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 20px 16px;
-  min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.screen { display: none; width: 100%; animation: fadeSlideIn 0.5s ease; }
-.screen.active { display: block; }
-@keyframes fadeSlideIn {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-@keyframes dotBlink {
-  0%, 20% { opacity: 0; }
-  40% { opacity: 1; }
-}
-@keyframes gaugeGrow { from { width: 0%; } }
-@keyframes bounceIn {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); opacity: 1; }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'M PLUS Rounded 1c',sans-serif;background:linear-gradient(135deg,#FFF0F5,#F0F4FF 50%,#FFF9F0);min-height:100dvh;color:var(--text);overflow-x:hidden}
+.container{max-width:480px;margin:0 auto;padding:20px 16px;min-height:100dvh;display:flex;align-items:center;justify-content:center}
+.screen{display:none;width:100%;animation:fadeIn .5s ease}
+.screen.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes dotBlink{0%,20%{opacity:0}40%{opacity:1}}
+@keyframes gaugeGrow{from{width:0%}}
+@keyframes bounceIn{0%{transform:scale(0);opacity:0}50%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
 
-/* ===== START ===== */
-.start-content { text-align: center; }
-.hero-emoji { font-size: 80px; animation: float 3s ease-in-out infinite; margin-bottom: 8px; }
-.hero-sub-emoji { font-size: 48px; margin-bottom: 24px; display: flex; justify-content: center; gap: 32px; }
-.hero-sub-emoji span:first-child { animation: pulse 2s ease-in-out infinite; }
-.hero-sub-emoji span:last-child { animation: pulse 2s ease-in-out infinite 1s; }
-.start-content h1 { font-size: 30px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; }
-.start-content h1 span {
-  background: linear-gradient(135deg, var(--pink), var(--purple));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.start-content .subtitle { font-size: 14px; color: var(--text-light); line-height: 1.8; margin-bottom: 16px; }
-.start-content .subtitle em { font-style: normal; font-weight: 700; color: var(--text); }
-.start-intro {
-  background: var(--card); border-radius: 14px; padding: 16px 18px; margin-bottom: 32px;
-  font-size: 13px; line-height: 1.8; color: var(--text-light); text-align: left; box-shadow: var(--shadow);
-}
-.start-intro strong { color: var(--text); }
-.btn-start {
-  background: linear-gradient(135deg, var(--pink), var(--purple)); color: white; border: none;
-  padding: 18px 64px; border-radius: 50px; font-size: 18px; font-weight: 700; font-family: inherit;
-  cursor: pointer; box-shadow: 0 4px 16px rgba(255,107,138,0.4); transition: all 0.3s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-.btn-start:active { transform: scale(0.95); }
+/* START */
+.start-content{text-align:center}
+.hero-emoji{font-size:80px;animation:float 3s ease-in-out infinite;margin-bottom:8px}
+.hero-sub{font-size:48px;margin-bottom:24px;display:flex;justify-content:center;gap:32px}
+.hero-sub span:first-child{animation:pulse 2s ease-in-out infinite}
+.hero-sub span:last-child{animation:pulse 2s ease-in-out infinite 1s}
+.start-content h1{font-size:30px;font-weight:800;margin-bottom:12px;line-height:1.3}
+.start-content h1 span{background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.start-content .subtitle{font-size:14px;color:var(--text-light);line-height:1.8;margin-bottom:16px}
+.start-content .subtitle em{font-style:normal;font-weight:700;color:var(--text)}
+.start-intro{background:var(--card);border-radius:14px;padding:16px 18px;margin-bottom:32px;font-size:13px;line-height:1.8;color:var(--text-light);text-align:left;box-shadow:var(--shadow)}
+.start-intro strong{color:var(--text)}
+.btn-start{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;padding:18px 64px;border-radius:50px;font-size:18px;font-weight:700;font-family:inherit;cursor:pointer;box-shadow:0 4px 16px rgba(255,107,138,.4);transition:.3s;-webkit-tap-highlight-color:transparent}
+.btn-start:active{transform:scale(.95)}
 
-/* ===== QUIZ ===== */
-.progress-wrapper { margin-bottom: 20px; }
-.progress-bar { height: 6px; background: #EEE; border-radius: 3px; overflow: hidden; margin-bottom: 8px; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, var(--pink), var(--blue)); border-radius: 3px; transition: width 0.5s ease; width: 0%; }
-.question-header { display: flex; justify-content: space-between; align-items: center; }
-.question-number { font-size: 13px; color: var(--text-light); font-weight: 700; }
-.category-badge {
-  font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 50px;
-  background: linear-gradient(135deg, #FFF0F5, #F0F4FF); color: var(--purple);
-}
-.question-card {
-  background: var(--card); border-radius: var(--radius); padding: 28px 22px;
-  box-shadow: var(--shadow); margin-top: 12px;
-}
-.scene-emoji { font-size: 40px; margin-bottom: 12px; }
-.scenario { font-size: 15px; font-weight: 700; line-height: 1.7; margin-bottom: 24px; color: var(--text); }
-.options { display: flex; flex-direction: column; gap: 10px; }
-.option-btn {
-  display: block; width: 100%; text-align: left; background: #F8F9FA;
-  border: 2px solid transparent; border-radius: 14px; padding: 15px 16px;
-  font-size: 13.5px; font-weight: 400; font-family: inherit; color: var(--text);
-  cursor: pointer; transition: all 0.2s ease; line-height: 1.6;
-  -webkit-tap-highlight-color: transparent;
-}
-.option-btn:active { transform: scale(0.97); background: var(--pink-light); border-color: var(--pink); }
-.option-btn.selected { background: var(--pink-light); border-color: var(--pink); font-weight: 700; }
+/* QUIZ */
+.progress-wrapper{margin-bottom:16px}
+.progress-bar{height:6px;background:#EEE;border-radius:3px;overflow:hidden;margin-bottom:8px}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--pink),var(--blue));border-radius:3px;transition:width .5s;width:0%}
+.question-header{display:flex;justify-content:space-between;align-items:center}
+.btn-back{background:none;border:none;color:var(--text-light);font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;padding:4px 0;-webkit-tap-highlight-color:transparent;transition:.2s}
+.btn-back:active{opacity:.5}
+.btn-back.hidden{visibility:hidden}
+.question-number{font-size:13px;color:var(--text-light);font-weight:700}
+.category-badge{font-size:11px;font-weight:700;padding:4px 12px;border-radius:50px;background:linear-gradient(135deg,#FFF0F5,#F0F4FF);color:var(--purple)}
+.question-card{background:var(--card);border-radius:var(--radius);padding:26px 20px;box-shadow:var(--shadow);margin-top:10px}
+.scene-emoji{font-size:40px;margin-bottom:10px}
+.scenario{font-size:15px;font-weight:700;line-height:1.7;margin-bottom:22px;color:var(--text)}
+.options{display:flex;flex-direction:column;gap:9px}
+.option-btn{display:block;width:100%;text-align:left;background:#F8F9FA;border:2px solid transparent;border-radius:14px;padding:14px 16px;font-size:13px;font-weight:400;font-family:inherit;color:var(--text);cursor:pointer;transition:.2s;line-height:1.6;-webkit-tap-highlight-color:transparent}
+.option-btn:active{transform:scale(.97);background:var(--pink-light);border-color:var(--pink)}
+.option-btn.selected{background:var(--pink-light);border-color:var(--pink);font-weight:700}
+.free-input{width:100%;min-height:80px;border:2px solid #EEE;border-radius:14px;padding:16px;font-size:16px;font-family:inherit;color:var(--text);resize:none;outline:none;transition:.3s;background:#F8F9FA}
+.free-input:focus{border-color:var(--pink);background:#FFF}
+.free-input::placeholder{color:#CCC}
+.btn-submit-free{margin-top:14px;width:100%;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;padding:16px;border-radius:50px;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer;transition:.3s;-webkit-tap-highlight-color:transparent}
+.btn-submit-free:active{transform:scale(.95)}
+.btn-submit-free:disabled{opacity:.4;cursor:not-allowed}
+.free-reaction{display:none;text-align:center;padding:28px 16px;animation:bounceIn .5s ease}
+.free-reaction.show{display:block}
+.free-reaction .reaction-emoji{font-size:56px;margin-bottom:10px}
+.free-reaction .reaction-text{font-size:15px;font-weight:700;color:var(--text);line-height:1.6}
 
-/* Free text */
-.free-input-area { margin-top: 4px; }
-.free-input {
-  width: 100%; min-height: 80px; border: 2px solid #EEE; border-radius: 14px;
-  padding: 16px; font-size: 16px; font-family: inherit; color: var(--text);
-  resize: none; outline: none; transition: border-color 0.3s; background: #F8F9FA;
-}
-.free-input:focus { border-color: var(--pink); background: #FFF; }
-.free-input::placeholder { color: #CCC; }
-.btn-submit-free {
-  margin-top: 14px; width: 100%;
-  background: linear-gradient(135deg, var(--pink), var(--purple)); color: white;
-  border: none; padding: 16px; border-radius: 50px; font-size: 16px; font-weight: 700;
-  font-family: inherit; cursor: pointer; transition: all 0.3s; -webkit-tap-highlight-color: transparent;
-}
-.btn-submit-free:active { transform: scale(0.95); }
-.btn-submit-free:disabled { opacity: 0.4; cursor: not-allowed; }
-.free-reaction { display: none; text-align: center; padding: 32px 16px; animation: bounceIn 0.5s ease; }
-.free-reaction.show { display: block; }
-.free-reaction .reaction-emoji { font-size: 56px; margin-bottom: 12px; }
-.free-reaction .reaction-text { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.6; }
+/* ANALYSIS */
+.analysis-content{text-align:center;padding:40px 20px}
+.analysis-emoji{font-size:72px;margin-bottom:24px;animation:pulse 1.5s ease-in-out infinite}
+.analysis-text{font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px}
+.analysis-dots span{font-size:24px;font-weight:800;color:var(--pink)}
+.analysis-dots span:nth-child(1){animation:dotBlink 1.2s infinite 0s}
+.analysis-dots span:nth-child(2){animation:dotBlink 1.2s infinite .2s}
+.analysis-dots span:nth-child(3){animation:dotBlink 1.2s infinite .4s}
+.analysis-sub{font-size:14px;color:var(--text-light);margin-top:20px;opacity:0;transition:opacity .5s}
+.analysis-sub.show{opacity:1}
 
-/* ===== ANALYSIS ===== */
-.analysis-content { text-align: center; padding: 40px 20px; }
-.analysis-emoji { font-size: 72px; margin-bottom: 24px; animation: pulse 1.5s ease-in-out infinite; }
-.analysis-text { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-.analysis-dots span { font-size: 24px; font-weight: 800; color: var(--pink); }
-.analysis-dots span:nth-child(1) { animation: dotBlink 1.2s infinite 0s; }
-.analysis-dots span:nth-child(2) { animation: dotBlink 1.2s infinite 0.2s; }
-.analysis-dots span:nth-child(3) { animation: dotBlink 1.2s infinite 0.4s; }
-.analysis-sub { font-size: 14px; color: var(--text-light); margin-top: 20px; opacity: 0; transition: opacity 0.5s; }
-.analysis-sub.show { opacity: 1; }
+/* RESULT */
+.result-card{background:var(--card);border-radius:var(--radius);padding:32px 20px;box-shadow:var(--shadow);text-align:center}
+.result-emoji{font-size:64px;margin-bottom:8px;animation:bounceIn .6s ease .3s both}
+.result-title{font-size:24px;font-weight:800;margin-bottom:20px;animation:bounceIn .6s ease .5s both}
+.gauge-wrapper{margin:0 auto 8px;max-width:320px;animation:bounceIn .6s ease .7s both}
+.gauge-labels{display:flex;justify-content:space-between;font-size:24px;margin-bottom:6px}
+.gauge-track{height:14px;background:#F0F0F0;border-radius:7px;overflow:hidden;position:relative}
+.gauge-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));border-radius:7px;animation:gaugeGrow 1.5s ease 1s both}
+.gauge-marker{position:absolute;top:-4px;width:22px;height:22px;background:#fff;border:3px solid var(--pink);border-radius:50%;transform:translateX(-50%);box-shadow:0 2px 8px rgba(0,0,0,.15);opacity:0;transition:opacity .3s}
+.gauge-marker.show{opacity:1}
+.result-percent{font-size:52px;font-weight:800;background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:12px 0 2px;animation:bounceIn .6s ease .9s both}
+.result-percent-label{font-size:13px;color:var(--text-light);margin-bottom:20px;font-weight:700}
+.radar-section{animation:bounceIn .6s ease 1.1s both;margin-bottom:20px}
+.radar-title{font-size:14px;font-weight:700;color:var(--text-light);margin-bottom:12px}
+.radar-canvas-wrapper{display:flex;justify-content:center}
+canvas#radar-chart{max-width:100%}
+.result-desc{font-size:14px;line-height:1.8;color:var(--text);margin-bottom:20px;text-align:left;background:#FFF5F7;padding:16px;border-radius:14px;animation:bounceIn .6s ease 1.3s both}
+.result-advice{font-size:13px;line-height:1.8;color:var(--text);margin-bottom:20px;text-align:left;background:#F0FFF4;padding:16px;border-radius:14px;animation:bounceIn .6s ease 1.4s both}
+.result-advice-label{font-size:12px;font-weight:700;color:#27AE60;margin-bottom:6px}
 
-/* ===== RESULT ===== */
-.result-card {
-  background: var(--card); border-radius: var(--radius); padding: 32px 20px;
-  box-shadow: var(--shadow); text-align: center;
-}
-.result-emoji { font-size: 64px; margin-bottom: 8px; animation: bounceIn 0.6s ease 0.3s both; }
-.result-title { font-size: 24px; font-weight: 800; margin-bottom: 20px; animation: bounceIn 0.6s ease 0.5s both; }
-.gauge-wrapper { margin: 0 auto 8px; max-width: 320px; animation: bounceIn 0.6s ease 0.7s both; }
-.gauge-labels { display: flex; justify-content: space-between; font-size: 24px; margin-bottom: 6px; }
-.gauge-track { height: 14px; background: #F0F0F0; border-radius: 7px; overflow: hidden; position: relative; }
-.gauge-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink)); border-radius: 7px; animation: gaugeGrow 1.5s ease 1s both; }
-.gauge-marker {
-  position: absolute; top: -4px; width: 22px; height: 22px; background: white;
-  border: 3px solid var(--pink); border-radius: 50%; transform: translateX(-50%);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15); opacity: 0; transition: opacity 0.3s;
-}
-.gauge-marker.show { opacity: 1; }
-.result-percent {
-  font-size: 52px; font-weight: 800;
-  background: linear-gradient(135deg, var(--pink), var(--purple));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  margin: 12px 0 2px; animation: bounceIn 0.6s ease 0.9s both;
-}
-.result-percent-label { font-size: 13px; color: var(--text-light); margin-bottom: 20px; font-weight: 700; }
+/* FEEDBACK SECTION */
+.feedback-section{margin-bottom:20px;animation:bounceIn .6s ease 1.5s both}
+.feedback-header{font-size:15px;font-weight:800;margin-bottom:4px;color:var(--text)}
+.feedback-sub{font-size:11px;color:var(--text-light);margin-bottom:12px;font-weight:700}
+.fb-item{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:#F8F9FA;border-radius:12px;margin-bottom:8px;border:2px solid transparent;transition:.3s}
+.fb-text{flex:1;font-size:14px;font-weight:700;margin-right:8px}
+.fb-buttons{display:flex;gap:6px;flex-shrink:0}
+.fb-btn{padding:7px 14px;border-radius:20px;font-size:11px;font-weight:700;border:none;cursor:pointer;font-family:inherit;transition:.2s;-webkit-tap-highlight-color:transparent}
+.fb-btn:active{transform:scale(.9)}
+.fb-yes{background:#E8F5E9;color:#388E3C}
+.fb-no{background:#FCE4EC;color:#E91E63}
+.fb-item.reacted .fb-btn{pointer-events:none;opacity:.3}
+.fb-item.agreed{background:#E8F5E9;border-color:#A5D6A7}
+.fb-item.agreed .fb-yes{opacity:1!important;background:#66BB6A;color:#fff}
+.fb-item.disagreed{background:#FCE4EC;border-color:#F48FB1}
+.fb-item.disagreed .fb-no{opacity:1!important;background:#EC407A;color:#fff}
 
-/* Radar chart */
-.radar-section { animation: bounceIn 0.6s ease 1.1s both; margin-bottom: 20px; }
-.radar-title { font-size: 14px; font-weight: 700; color: var(--text-light); margin-bottom: 12px; }
-.radar-canvas-wrapper { display: flex; justify-content: center; }
-canvas#radar-chart { max-width: 100%; }
+/* FREE TEXT RESULTS */
+.freetext-section{margin-bottom:20px;animation:bounceIn .6s ease 1.6s both}
+.freetext-section-title{font-size:14px;font-weight:700;color:var(--text-light);margin-bottom:10px}
+.result-freetext{text-align:left;background:#F0F4FF;padding:14px 16px;border-radius:14px;margin-bottom:8px}
+.result-freetext-label{font-size:11px;color:var(--text-light);font-weight:700;margin-bottom:3px}
+.result-freetext-quote{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
+.result-freetext-analysis{font-size:12px;color:var(--purple);font-weight:700}
 
-.result-desc {
-  font-size: 14px; line-height: 1.8; color: var(--text); margin-bottom: 20px; text-align: left;
-  background: #FFF5F7; padding: 16px; border-radius: 14px; animation: bounceIn 0.6s ease 1.3s both;
-}
-.result-advice {
-  font-size: 13px; line-height: 1.8; color: var(--text); margin-bottom: 20px; text-align: left;
-  background: #F0FFF4; padding: 16px; border-radius: 14px; animation: bounceIn 0.6s ease 1.4s both;
-}
-.result-advice-label { font-size: 12px; font-weight: 700; color: #27AE60; margin-bottom: 6px; }
-.result-freetext {
-  text-align: left; background: #F0F4FF; padding: 14px 16px; border-radius: 14px;
-  margin-bottom: 20px; animation: bounceIn 0.6s ease 1.5s both;
-}
-.result-freetext-label { font-size: 12px; color: var(--text-light); font-weight: 700; margin-bottom: 4px; }
-.result-freetext-quote { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-.result-freetext-analysis { font-size: 12px; color: var(--purple); font-weight: 700; }
-.result-traits {
-  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
-  margin-bottom: 28px; animation: bounceIn 0.6s ease 1.6s both;
-}
-.trait-badge {
-  background: linear-gradient(135deg, #FFF0F5, #F0F4FF); padding: 7px 14px;
-  border-radius: 50px; font-size: 12px; font-weight: 700; color: var(--text);
-}
-.btn-retry {
-  background: var(--card); color: var(--pink); border: 2px solid var(--pink);
-  padding: 14px 44px; border-radius: 50px; font-size: 15px; font-weight: 700;
-  font-family: inherit; cursor: pointer; transition: all 0.3s;
-  -webkit-tap-highlight-color: transparent; animation: bounceIn 0.6s ease 1.8s both;
-}
-.btn-retry:active { transform: scale(0.95); background: var(--pink); color: white; }
+.result-traits{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px;animation:bounceIn .6s ease 1.7s both}
+.trait-badge{background:linear-gradient(135deg,#FFF0F5,#F0F4FF);padding:7px 14px;border-radius:50px;font-size:12px;font-weight:700;color:var(--text)}
+.btn-retry{background:var(--card);color:var(--pink);border:2px solid var(--pink);padding:14px 44px;border-radius:50px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:.3s;-webkit-tap-highlight-color:transparent;animation:bounceIn .6s ease 1.9s both}
+.btn-retry:active{transform:scale(.95);background:var(--pink);color:#fff}
 </style>
 </head>
 <body>
@@ -221,12 +137,9 @@ canvas#radar-chart { max-width: 100%; }
   <div id="start-screen" class="screen active">
     <div class="start-content">
       <div class="hero-emoji">🔮</div>
-      <div class="hero-sub-emoji"><span>❤️</span><span>🧠</span></div>
+      <div class="hero-sub"><span>❤️</span><span>🧠</span></div>
       <h1>感情ある？<span>深層診断</span></h1>
-      <p class="subtitle">
-        表面じゃない、あなたの<em>本質</em>を探る。<br>
-        <em>感情タイプ</em>？<em>論理タイプ</em>？15問で深掘り！
-      </p>
+      <p class="subtitle">表面じゃない、あなたの<em>本質</em>を探る。<br><em>感情タイプ</em>？<em>論理タイプ</em>？15問で深掘り！</p>
       <div class="start-intro">
         この診断は、<strong>心理学の視点</strong>からあなたの感情パターンを<strong>5つの次元</strong>で分析します。<br><br>
         🪞 自己認識 &nbsp; 💗 共感力 &nbsp; 🔥 感情処理<br>
@@ -241,6 +154,7 @@ canvas#radar-chart { max-width: 100%; }
     <div class="progress-wrapper">
       <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
       <div class="question-header">
+        <button class="btn-back hidden" id="btn-back" onclick="goBack()">← 戻る</button>
         <div class="question-number" id="question-number"></div>
         <div class="category-badge" id="category-badge"></div>
       </div>
@@ -250,7 +164,7 @@ canvas#radar-chart { max-width: 100%; }
 
   <div id="analysis-screen" class="screen">
     <div class="analysis-content">
-      <div class="analysis-emoji">🔮</div>
+      <div class="analysis-emoji" id="analysis-emoji">🔮</div>
       <div class="analysis-text" id="analysis-text">深層心理をスキャン中</div>
       <div class="analysis-dots"><span>.</span><span>.</span><span>.</span></div>
       <div class="analysis-sub" id="analysis-sub">5つの次元で分析中...</div>
@@ -264,349 +178,366 @@ canvas#radar-chart { max-width: 100%; }
 </div>
 
 <script>
-// ===== QUESTION DATA =====
+// ===== QUESTIONS =====
 const questions = [
-  {
-    type: 'choice', emoji: '🪞', category: '自己認識',
-    scenario: '親しい人に「最近ちょっと\n怒りっぽくない？」と言われた。\nあなたの内心は？',
-    options: [
-      { text: 'えっ、そう見えてた？嫌な思いさせてたかも…', score: 4 },
-      { text: '言われてみれば…最近ストレス溜まってたかも', score: 3 },
-      { text: 'そうかな？自分ではそう思わないけど', score: 2 },
-      { text: '怒ってるんじゃなくて、正しいことを言ってるだけ', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '🌙', category: '感情処理',
-    scenario: '仕事で大きな失敗をした夜。\n布団の中で、あなたの頭に\n流れているのは？',
-    options: [
-      { text: 'あの時の相手の表情や声のトーンが何度もリプレイされる', score: 4 },
-      { text: '「あの人、怒ってるかな…嫌われてないかな」と不安になる', score: 3 },
-      { text: 'なぜ失敗したか原因を分析して、次の対策を考えている', score: 2 },
-      { text: '「終わったことは仕方ない」と切り替えて寝ようとする', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '🚃', category: '共感力',
-    scenario: '電車で隣に座った人が、\n静かに涙を流している。\nあなたの内側で起きていることは？',
-    options: [
-      { text: '胸がキュッとなる。何があったんだろう…大丈夫かな', score: 4 },
-      { text: '気になって少し落ち着かなくなる。でも声はかけられない', score: 3 },
-      { text: '一瞬気になるけど、自分の世界に戻る', score: 2 },
-      { text: '泣いている理由が気になる（仕事？恋愛？映画の感動？）', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '⚖️', category: '価値観',
-    scenario: '「正しいこと」と「優しいこと」が\n矛盾する場面。あなたは？',
-    options: [
-      { text: '迷わず優しさを選ぶ。傷つけたくない', score: 4 },
-      { text: '悩むけど、目の前の相手の気持ちを優先しがち', score: 3 },
-      { text: '悩むけど、長期的に見て正しい方を選びがち', score: 2 },
-      { text: '正しいことを伝えるのが本当の優しさだと思う', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '💔', category: '価値観',
-    scenario: '信頼していた人に裏切られた。\nあなたの最初の反応に近いのは？',
-    options: [
-      { text: 'ショックで頭が真っ白。しばらく何も考えられない', score: 4 },
-      { text: '悲しみと怒りが交互にやってくる', score: 3 },
-      { text: '動揺しつつも「冷静になろう」と自分に言い聞かせる', score: 2 },
-      { text: '「なぜこうなったか」を分析し始める', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '📞', category: '共感力',
-    scenario: '友人が泣きながら\n「もう会社辞めたい」と電話してきた。\nあなたの頭の中で最初に動くのは？',
-    options: [
-      { text: '相手の辛さが自分にも流れ込んでくるような感覚', score: 4 },
-      { text: '「何がそこまで辛いんだろう」と相手の立場を想像する', score: 3 },
-      { text: '辞めた場合のリスクとメリットが頭に浮かぶ', score: 2 },
-      { text: '「まず落ち着いて」と状況を整理してあげたくなる', score: 1 },
-    ]
-  },
-  {
-    type: 'free', emoji: '👶', category: '共感力',
-    scenario: '目の前で小さい子が転んで\n泣いています。親は見当たりません。\n\nあなたの頭に最初に浮かんだ言葉を\nそのまま書いてください。',
-    placeholder: '最初に浮かんだ言葉をそのまま...',
-  },
-  {
-    type: 'choice', emoji: '🎭', category: '自己認識',
-    scenario: '「今のあなたの気持ちを\n一言で表現してください」\nと急に振られた。あなたは？',
-    options: [
-      { text: 'パッと言葉が出る。気持ちを表現するのは自然なこと', score: 4 },
-      { text: '少し考えれば出る。でもピッタリの言葉を探すのに時間がかかる', score: 3 },
-      { text: '「普通」「まあまあ」くらいしか出てこない…', score: 2 },
-      { text: '「気持ち？…特にないけど」となる', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '🔥', category: '感情処理',
-    scenario: '怒りを感じたとき、\nあなたの中で起きていることは？',
-    options: [
-      { text: '感情が先に出て、後から「言いすぎたかも」と後悔しがち', score: 4 },
-      { text: '怒りを感じつつも、なんとか表現を選ぼうとする', score: 3 },
-      { text: '一度飲み込んで、冷静に対処法を考える', score: 2 },
-      { text: 'そもそもあまり怒りを感じない。「なぜこうなったか」に興味が向く', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '🏆', category: '対人感受性',
-    scenario: 'チームで大きな成果を出した。\nあなたが一番嬉しいのは？',
-    options: [
-      { text: 'メンバーが「このチームでよかった」と言ってくれたこと', score: 4 },
-      { text: 'みんなで苦労した過程そのもの', score: 3 },
-      { text: '目標を達成できたという事実', score: 2 },
-      { text: '自分の判断や戦略が正しかったと証明できたこと', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '💭', category: '感情処理',
-    scenario: '大切な人との別れの場面。\nあなたの中で一番強く残るのは？',
-    options: [
-      { text: 'その時感じた胸の痛みや涙の感覚', score: 4 },
-      { text: '最後に交わした言葉や表情', score: 3 },
-      { text: '「もっとこうすればよかった」という反省', score: 2 },
-      { text: '「次にどう前に進むか」という今後のこと', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '🏷️', category: '価値観',
-    scenario: '「感情的な人」と聞いて、\nあなたが最初に浮かべるイメージは？',
-    options: [
-      { text: '人間味があって素敵な人', score: 4 },
-      { text: '共感力が高い人', score: 3 },
-      { text: 'ちょっと扱いにくい人', score: 2 },
-      { text: '合理的じゃない人', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '🤫', category: '対人感受性',
-    scenario: '部下がこっそり「実は転職を\n考えてるんです」と打ち明けてきた。\nあなたの最初の内心は？',
-    options: [
-      { text: '寂しい…この人がいなくなるなんて', score: 4 },
-      { text: '何か辛いことがあったのかな、ちゃんと聞いてあげよう', score: 3 },
-      { text: '引き留めるべきか、送り出すべきか判断しなきゃ', score: 2 },
-      { text: '業務の引き継ぎと後任のことが頭をよぎる', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '🧘', category: '自己認識',
-    scenario: '一人になったとき、\nあなたが無意識にやっていることは？',
-    options: [
-      { text: '最近あった出来事を思い出して、感情を味わい直している', score: 4 },
-      { text: '誰かにLINEしたくなる。人とつながっていたい', score: 3 },
-      { text: '趣味や好きなことに没頭する', score: 2 },
-      { text: 'ToDoを整理したり、次の予定を考えたりする', score: 1 },
-    ]
-  },
-  {
-    type: 'choice', emoji: '🔮', category: 'メタ認知',
-    scenario: '最後の質問。\nこの診断をやりながら、\nあなたが一番感じていたことは？',
-    options: [
-      { text: '自分のことを振り返る時間が楽しかった', score: 4 },
-      { text: '「自分ってこういうタイプなんだ」と発見があった', score: 3 },
-      { text: '質問の意図や傾向を分析しながら答えていた', score: 2 },
-      { text: '早く結果が知りたくてサクサク進めた', score: 1 },
-    ]
-  },
+  // 0: 対人感受性
+  { type:'choice', emoji:'🪞', category:'自己認識',
+    scenario:'親しい人に「最近ちょっと\n怒りっぽくない？」と言われた。\nあなたの内心は？',
+    options:[
+      {text:'えっ、そう見えてた？嫌な思いさせてたかも…',score:4},
+      {text:'言われてみれば…最近ストレス溜まってたかも',score:3},
+      {text:'そうかな？自分ではそう思わないけど',score:2},
+      {text:'怒ってるんじゃなくて、正しいことを言ってるだけ',score:1},
+    ]},
+  // 1: 感情処理
+  { type:'choice', emoji:'🌙', category:'感情処理',
+    scenario:'仕事で大きな失敗をした夜。\n布団の中で、あなたの頭に\n流れているのは？',
+    options:[
+      {text:'あの時の相手の表情や声のトーンが何度もリプレイされる',score:4},
+      {text:'「あの人、怒ってるかな…嫌われてないかな」と不安になる',score:3},
+      {text:'なぜ失敗したか原因を分析して、次の対策を考えている',score:2},
+      {text:'「終わったことは仕方ない」と切り替えて寝ようとする',score:1},
+    ]},
+  // 2: 共感力
+  { type:'choice', emoji:'🚃', category:'共感力',
+    scenario:'電車で隣に座った人が、\n静かに涙を流している。\nあなたの内側で起きていることは？',
+    options:[
+      {text:'胸がキュッとなる。何があったんだろう…大丈夫かな',score:4},
+      {text:'気になって少し落ち着かなくなる。でも声はかけられない',score:3},
+      {text:'一瞬気になるけど、自分の世界に戻る',score:2},
+      {text:'泣いている理由が気になる（仕事？恋愛？映画の感動？）',score:1},
+    ]},
+  // 3: 共感力 (FREE)
+  { type:'free', emoji:'📞', category:'共感力',
+    scenario:'友人が泣きながら電話してきた。\n「もう会社辞めたい…」\n\nあなたが最初にかける言葉を\nそのまま書いてください。',
+    placeholder:'最初にかける言葉をそのまま...', freeId:'friend' },
+  // 4: 価値観
+  { type:'choice', emoji:'⚖️', category:'価値観',
+    scenario:'「正しいこと」と「優しいこと」が\n矛盾する場面。あなたは？',
+    options:[
+      {text:'迷わず優しさを選ぶ。傷つけたくない',score:4},
+      {text:'悩むけど、目の前の相手の気持ちを優先しがち',score:3},
+      {text:'悩むけど、長期的に見て正しい方を選びがち',score:2},
+      {text:'正しいことを伝えるのが本当の優しさだと思う',score:1},
+    ]},
+  // 5: 価値観
+  { type:'choice', emoji:'💔', category:'価値観',
+    scenario:'信頼していた人に裏切られた。\nあなたの最初の反応に近いのは？',
+    options:[
+      {text:'ショックで頭が真っ白。しばらく何も考えられない',score:4},
+      {text:'悲しみと怒りが交互にやってくる',score:3},
+      {text:'動揺しつつも「冷静になろう」と自分に言い聞かせる',score:2},
+      {text:'「なぜこうなったか」を分析し始める',score:1},
+    ]},
+  // 6: 自己認識
+  { type:'choice', emoji:'🎭', category:'自己認識',
+    scenario:'「今のあなたの気持ちを\n一言で表現してください」\nと急に振られた。あなたは？',
+    options:[
+      {text:'パッと言葉が出る。気持ちを表現するのは自然なこと',score:4},
+      {text:'少し考えれば出る。でもピッタリの言葉を探すのに時間がかかる',score:3},
+      {text:'「普通」「まあまあ」くらいしか出てこない…',score:2},
+      {text:'「気持ち？…特にないけど」となる',score:1},
+    ]},
+  // 7: 共感力 (FREE)
+  { type:'free', emoji:'👶', category:'共感力',
+    scenario:'目の前で小さい子が転んで\n泣いています。親は見当たりません。\n\nあなたの頭に最初に浮かんだ言葉を\nそのまま書いてください。',
+    placeholder:'最初に浮かんだ言葉をそのまま...', freeId:'child' },
+  // 8: 感情処理
+  { type:'choice', emoji:'🔥', category:'感情処理',
+    scenario:'怒りを感じたとき、\nあなたの中で起きていることは？',
+    options:[
+      {text:'感情が先に出て、後から「言いすぎたかも」と後悔しがち',score:4},
+      {text:'怒りを感じつつも、なんとか表現を選ぼうとする',score:3},
+      {text:'一度飲み込んで、冷静に対処法を考える',score:2},
+      {text:'そもそもあまり怒りを感じない。「なぜこうなったか」に興味が向く',score:1},
+    ]},
+  // 9: 対人感受性
+  { type:'choice', emoji:'🏆', category:'対人感受性',
+    scenario:'チームで大きな成果を出した。\nあなたが一番嬉しいのは？',
+    options:[
+      {text:'メンバーが「このチームでよかった」と言ってくれたこと',score:4},
+      {text:'みんなで苦労した過程そのもの',score:3},
+      {text:'目標を達成できたという事実',score:2},
+      {text:'自分の判断や戦略が正しかったと証明できたこと',score:1},
+    ]},
+  // 10: 感情処理
+  { type:'choice', emoji:'💭', category:'感情処理',
+    scenario:'大切な人との別れの場面。\nあなたの中で一番強く残るのは？',
+    options:[
+      {text:'その時感じた胸の痛みや涙の感覚',score:4},
+      {text:'最後に交わした言葉や表情',score:3},
+      {text:'「もっとこうすればよかった」という反省',score:2},
+      {text:'「次にどう前に進むか」という今後のこと',score:1},
+    ]},
+  // 11: 価値観
+  { type:'choice', emoji:'🏷️', category:'価値観',
+    scenario:'「感情的な人」と聞いて、\nあなたが最初に浮かべるイメージは？',
+    options:[
+      {text:'人間味があって素敵な人',score:4},
+      {text:'共感力が高い人',score:3},
+      {text:'ちょっと扱いにくい人',score:2},
+      {text:'合理的じゃない人',score:1},
+    ]},
+  // 12: 対人感受性 (FREE)
+  { type:'free', emoji:'🤫', category:'対人感受性',
+    scenario:'部下がこっそり打ち明けてきた。\n「実は…転職を考えてるんです」\n\nあなたが最初にかける言葉を\nそのまま書いてください。',
+    placeholder:'最初にかける言葉をそのまま...', freeId:'subordinate' },
+  // 13: 自己認識
+  { type:'choice', emoji:'🧘', category:'自己認識',
+    scenario:'一人になったとき、\nあなたが無意識にやっていることは？',
+    options:[
+      {text:'最近あった出来事を思い出して、感情を味わい直している',score:4},
+      {text:'誰かにLINEしたくなる。人とつながっていたい',score:3},
+      {text:'趣味や好きなことに没頭する',score:2},
+      {text:'ToDoを整理したり、次の予定を考えたりする',score:1},
+    ]},
+  // 14: メタ認知→自己認識
+  { type:'choice', emoji:'🔮', category:'メタ認知',
+    scenario:'最後の質問。\nこの診断をやりながら、\nあなたが一番感じていたことは？',
+    options:[
+      {text:'自分のことを振り返る時間が楽しかった',score:4},
+      {text:'「自分ってこういうタイプなんだ」と発見があった',score:3},
+      {text:'質問の意図や傾向を分析しながら答えていた',score:2},
+      {text:'早く結果が知りたくてサクサク進めた',score:1},
+    ]},
 ];
 
-// Dimension mapping (question indices → dimension)
 const dimensionConfig = [
-  { name: '共感力',     qIndices: [2, 5, 6] },
-  { name: '感情処理',   qIndices: [1, 8, 10] },
-  { name: '自己認識',   qIndices: [7, 13, 14] },
-  { name: '対人感受性', qIndices: [0, 9, 12] },
-  { name: '価値観',     qIndices: [3, 4, 11] },
+  { name:'共感力',     qi:[2,3,7] },
+  { name:'感情処理',   qi:[1,8,10] },
+  { name:'自己認識',   qi:[6,13,14] },
+  { name:'対人感受性', qi:[0,9,12] },
+  { name:'価値観',     qi:[4,5,11] },
 ];
+
+// Free text configs
+const freeTextCfg = {
+  friend: {
+    label:'📞 友人が「辞めたい」と泣いた時',
+    emotional:{w:['大丈夫','つらい','辛い','しんどい','わかる','泣','味方','そばにいる'],emoji:'❤️',msg:'まず気持ちを受け止めるタイプ',s:4},
+    logical:{w:['なぜ','なんで','何が','原因','理由','条件','給料','年収','転職先','メリット','次'],emoji:'🧊',msg:'すぐ解決策に向かう頼れるタイプ',s:1},
+    softE:{w:['お疲れ','話して','聞かせて','大変','そっか','うん','応援'],emoji:'🥺',msg:'寄り添う姿勢が伝わります',s:3},
+    softL:{w:['落ち着','冷静','整理','考え','どうしたい','具体'],emoji:'🤔',msg:'まず整理から入るタイプ',s:2},
+    def:{emoji:'😊',msg:'あなたらしい言葉ですね',s:3},
+  },
+  child: {
+    label:'👶 子供が転んで泣いてる時',
+    emotional:{w:['大丈夫','だいじょうぶ','痛い','いたい','泣かないで','よしよし','えらい','かわいそう','ごめんね','痛くない'],emoji:'❤️',msg:'まず気持ちに寄り添う温かい反応',s:4},
+    logical:{w:['どこ','親は','親が','立って','立ちな','起き','探','周り','確認','誰か','交番','警察'],emoji:'🧊',msg:'まず状況把握から入る冷静な反応',s:1},
+    softE:{w:['怪我','けが','ケガ','びっくり','驚','おいで','こっち','血'],emoji:'🥺',msg:'心配が先に来る優しい反応',s:3},
+    softL:{w:['何が','どう','転ん','ぶつけ'],emoji:'🤔',msg:'原因把握から入る分析的な反応',s:2},
+    def:{emoji:'😊',msg:'独自のアプローチ！あなたが出てます',s:3},
+  },
+  subordinate: {
+    label:'🤫 部下の転職告白への一言',
+    emotional:{w:['寂しい','残念','びっくり','ショック','マジ','えっ','うそ','え！','まじ'],emoji:'❤️',msg:'感情がストレートに出る正直な反応',s:4},
+    logical:{w:['なぜ','なんで','理由','条件','いつから','引き継ぎ','後任','いつ','期限','予定'],emoji:'🧊',msg:'即座に実務面に向かうプロな反応',s:1},
+    softE:{w:['話してくれて','ありがとう','聞かせて','気持ち','相談','打ち明け','信頼'],emoji:'🥺',msg:'信頼に応えようとする温かい反応',s:3},
+    softL:{w:['何かあった','どうして','不満','きっかけ','状況','考え'],emoji:'🤔',msg:'まず背景を知りたい冷静な反応',s:2},
+    def:{emoji:'😊',msg:'あなたらしいリアクションですね',s:3},
+  },
+};
+
+function analyzeFree(freeId, text) {
+  if (!text||!text.trim()) return {score:3,emoji:'🤔',msg:'沈黙…！それも深い回答です'};
+  const cfg = freeTextCfg[freeId]; if (!cfg) return {score:3,emoji:'😊',msg:'独特な回答ですね'};
+  const checks = ['emotional','logical','softE','softL'];
+  for (const key of checks) {
+    const c = cfg[key];
+    for (const w of c.w) { if (text.includes(w)) return {score:c.s,emoji:c.emoji,msg:c.msg}; }
+  }
+  return {score:cfg.def.s,emoji:cfg.def.emoji,msg:cfg.def.msg};
+}
 
 // Result tiers
 const resultTiers = [
-  {
-    min: 85, emoji: '🫶', title: 'エモーショナル・コア',
-    desc: 'あなたの世界は感情で彩られている。人の気持ちを自分のことのように感じ取れる、高い「情動的共感力」の持ち主。周りの人はあなたの存在に救われている。ただし、他者の感情を吸収しすぎて疲れることも。',
-    advice: '「これは自分の感情？相手の感情？」と問いかけるだけで、感情に振り回されにくくなります。境界線を意識するのがポイント。',
-    traits: ['情動的共感力◎', '感情の言語化が得意', '他者の感情を吸収しやすい', 'ケアラー気質']
+  { min:85, emoji:'🫶', title:'エモーショナル・コア',
+    desc:'あなたの世界は感情で彩られている。人の気持ちを自分のことのように感じ取れる、高い「情動的共感力」の持ち主。周りの人はあなたの存在に救われている。ただし、他者の感情を吸収しすぎて疲れることも。',
+    advice:'「これは自分の感情？相手の感情？」と問いかけるだけで、感情に振り回されにくくなります。境界線を意識するのがポイント。',
+    traits:['情動的共感力◎','感情の言語化が得意','他者の感情を吸収しやすい','ケアラー気質'],
+    feedback:['考えすぎだよ','優しすぎない？','すぐ泣くよね笑','気にしすぎじゃない？','人の相談聞きすぎて疲れてない？'],
   },
-  {
-    min: 70, emoji: '💗', title: 'エンパス・ハイブリッド',
-    desc: '論理的に考える力もあるのに、最後は心で決めがち。相手の立場に立って考えられる「認知的共感力」が高い。相談役として最強のポジション。感情に流されすぎないよう意識するだけで、もっとバランスが取れる。',
-    advice: '感情で判断した後に、5分だけ論理で検証する習慣をつけると最強になれます。「心→頭」の順番を意識して。',
-    traits: ['認知的共感力◎', '感情ベースの意思決定', '相談されやすい', '場の空気に敏感']
+  { min:70, emoji:'💗', title:'エンパス・ハイブリッド',
+    desc:'論理的に考える力もあるのに、最後は心で決めがち。相手の立場に立って考えられる「認知的共感力」が高い。相談役として最強のポジション。',
+    advice:'感情で判断した後に、5分だけ論理で検証する習慣をつけると最強になれます。「心→頭」の順番を意識して。',
+    traits:['認知的共感力◎','感情ベースの意思決定','相談されやすい','場の空気に敏感'],
+    feedback:['相談しやすいよね','空気読むよね〜','なんでそんなに人の気持ちわかるの？','たまに感情的になるよね','聞き上手だよね'],
   },
-  {
-    min: 50, emoji: '⚖️', title: 'デュアルプロセッサー',
-    desc: '感情で感じたことを、論理で処理できるタイプ。心が動いても、頭で整理してから行動に移せる。これは非常に高いEQ（感情知性）の表れ。どちらか一方に偏らない強さがある。',
-    advice: '意識的に「今は感情モード」「今は論理モード」と切り替えると、さらに力を発揮できます。あなたのバランス感覚は最大の武器。',
-    traits: ['EQ高め', '感情と論理の切替上手', '状況適応力◎', 'バランス型リーダー']
+  { min:50, emoji:'⚖️', title:'デュアルプロセッサー',
+    desc:'感情で感じたことを、論理で処理できるタイプ。心が動いても、頭で整理してから行動に移せる。これは非常に高いEQ（感情知性）の表れ。',
+    advice:'意識的に「今は感情モード」「今は論理モード」と切り替えると、さらに力を発揮できます。バランス感覚は最大の武器。',
+    traits:['EQ高め','感情と論理の切替上手','状況適応力◎','バランス型リーダー'],
+    feedback:['器用だよね','冷静なのに優しいよね','たまに急にスイッチ入るよね笑','感情あるのかないのかわかんない','バランスいいよね'],
   },
-  {
-    min: 30, emoji: '🧠', title: 'ロジカル・ファースト',
-    desc: '感情がないわけじゃない。ただ、感情より先に分析や論理が動く。問題解決能力が高く、冷静な判断ができるのが強み。時々「冷たい」と思われることがあるかもしれないが、あなたなりの表現方法がある。',
-    advice: '結論を出す前に「相手は今どう感じているだろう？」と3秒だけ考えてみてください。それだけで人間関係が変わります。',
-    traits: ['分析力◎', '冷静な判断力', '感情表現は控えめ', '問題解決型']
+  { min:30, emoji:'🧠', title:'ロジカル・ファースト',
+    desc:'感情がないわけじゃない。ただ、感情より先に分析や論理が動く。問題解決能力が高く、冷静な判断ができるのが強み。',
+    advice:'結論を出す前に「相手は今どう感じているだろう？」と3秒だけ考えてみてください。それだけで人間関係が変わります。',
+    traits:['分析力◎','冷静な判断力','感情表現は控えめ','問題解決型'],
+    feedback:['ちょっと冷たくない？笑','正論はそうだけどさ…','もうちょっと共感してくれない？','感情どこいった？笑','でもたまに優しいよね'],
   },
-  {
-    min: 0, emoji: '🤖', title: 'ウルトラ・ラショナル',
-    desc: '極めて合理的な思考の持ち主。感情に振り回されることが少なく、常にクリアな判断ができる。ただし、人は論理だけでは動かない。あなたの冷静さは最大の強みだが、時に「温度」を意識的に足すとさらに強い。',
-    advice: '感情を「データ」として活用してみましょう。「この人は今こう感じている→だからこう対応すると効果的」は、あなたの得意分野のはず。',
-    traits: ['超合理的思考', 'ブレない判断軸', '感情の影響を受けにくい', '効率重視']
+  { min:0, emoji:'🤖', title:'ウルトラ・ラショナル',
+    desc:'極めて合理的な思考の持ち主。感情に振り回されることが少なく、常にクリアな判断ができる。あなたの冷静さは最大の強みだが、時に「温度」を意識的に足すとさらに強い。',
+    advice:'感情を「データ」として活用してみましょう。「この人は今こう感じている→だからこう対応すると効果的」は、あなたの得意分野のはず。',
+    traits:['超合理的思考','ブレない判断軸','感情の影響を受けにくい','効率重視'],
+    feedback:['ロボットみたい笑','「で、結論は？」が口癖じゃない？','涙腺どこ？','人間味出して？笑','でも頼りになるよね'],
   },
 ];
 
-// Free text analysis
-function analyzeFreeText(text) {
-  if (!text || text.trim().length === 0) return { score: 3, emoji: '🤔', msg: '沈黙…！それも深い回答です' };
-  const t = text;
-  const emotional = ['大丈夫','だいじょうぶ','痛い','いたい','泣かないで','なかないで','よしよし','いい子','えらい','かわいそう','ごめんね','痛くない'];
-  const logical = ['どこ','親は','親が','おや','立って','立ちな','起き','探','周り','見て','確認','誰か','交番','警察'];
-  const softEmotional = ['怪我','けが','ケガ','びっくり','驚','血','おいで','こっち','抱'];
-  const softLogical = ['何が','どう','状況','転ん','ぶつけ','どこか'];
-  for (const kw of emotional) { if (t.includes(kw)) return { score: 4, emoji: '❤️', msg: 'まず気持ちに寄り添う、温かい反応ですね' }; }
-  for (const kw of logical) { if (t.includes(kw)) return { score: 1, emoji: '🧊', msg: 'まず状況把握から入る、冷静な反応ですね' }; }
-  for (const kw of softEmotional) { if (t.includes(kw)) return { score: 3, emoji: '🥺', msg: '心配が先に来る、優しい反応ですね' }; }
-  for (const kw of softLogical) { if (t.includes(kw)) return { score: 2, emoji: '🤔', msg: '原因を把握しようとする、分析的な反応ですね' }; }
-  return { score: 3, emoji: '😊', msg: '独自のアプローチ！その一言にあなたが出てます' };
-}
-
-// ===== GAME STATE =====
+// ===== STATE =====
 let currentQuestion = 0;
 let scores = [];
-let freeTextResponse = '';
-let freeTextAnalysis = null;
+let freeTexts = {};
 let isTransitioning = false;
 
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  const screen = document.getElementById(id);
-  void screen.offsetWidth;
-  screen.classList.add('active');
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  const s = document.getElementById(id);
+  void s.offsetWidth;
+  s.classList.add('active');
+}
+
+function goToStart() {
+  showScreen('start-screen');
 }
 
 function startQuiz() {
-  currentQuestion = 0;
-  scores = [];
-  freeTextResponse = '';
-  freeTextAnalysis = null;
-  isTransitioning = false;
-  document.getElementById('analysis-text').textContent = '深層心理をスキャン中';
-  document.querySelector('#analysis-screen .analysis-emoji').textContent = '🔮';
-  const sub = document.getElementById('analysis-sub');
-  sub.textContent = '5つの次元で分析中...';
-  sub.classList.remove('show');
+  currentQuestion=0; scores=[]; freeTexts={}; isTransitioning=false;
+  document.getElementById('analysis-emoji').textContent='🔮';
+  document.getElementById('analysis-text').textContent='深層心理をスキャン中';
+  const sub=document.getElementById('analysis-sub');
+  sub.textContent='5つの次元で分析中...'; sub.classList.remove('show');
   showScreen('quiz-screen');
+  renderQuestion();
+}
+
+function goBack() {
+  if (isTransitioning || currentQuestion===0) return;
+  currentQuestion--;
+  scores.pop();
+  if (freeTexts[currentQuestion]) delete freeTexts[currentQuestion];
   renderQuestion();
 }
 
 function renderQuestion() {
   const q = questions[currentQuestion];
   const total = questions.length;
-  const pct = (currentQuestion / total) * 100;
-  document.getElementById('progress-fill').style.width = pct + '%';
-  document.getElementById('question-number').textContent = `Q${currentQuestion + 1} / ${total}`;
+  document.getElementById('progress-fill').style.width = (currentQuestion/total*100)+'%';
+  document.getElementById('question-number').textContent = `Q${currentQuestion+1} / ${total}`;
   document.getElementById('category-badge').textContent = q.category;
+  const back = document.getElementById('btn-back');
+  currentQuestion===0 ? back.classList.add('hidden') : back.classList.remove('hidden');
 
   const card = document.getElementById('question-card');
-  card.style.animation = 'none';
-  void card.offsetWidth;
-  card.style.animation = 'fadeSlideIn 0.4s ease';
+  card.style.animation='none'; void card.offsetWidth; card.style.animation='fadeIn .4s ease';
+  const scHtml = q.scenario.replace(/\n/g,'<br>');
 
-  const scenarioHtml = q.scenario.replace(/\n/g, '<br>');
-
-  if (q.type === 'choice') {
-    card.innerHTML = `
-      <div class="scene-emoji">${q.emoji}</div>
-      <p class="scenario">${scenarioHtml}</p>
-      <div class="options">${q.options.map((opt, i) =>
-        `<button class="option-btn" onclick="selectOption(${i})">${opt.text}</button>`
-      ).join('')}</div>`;
+  if (q.type==='choice') {
+    card.innerHTML = `<div class="scene-emoji">${q.emoji}</div>
+      <p class="scenario">${scHtml}</p>
+      <div class="options">${q.options.map((o,i)=>
+        `<button class="option-btn" onclick="selectOption(${i})">${o.text}</button>`).join('')}</div>`;
   } else {
-    card.innerHTML = `
-      <div class="scene-emoji">${q.emoji}</div>
-      <p class="scenario">${scenarioHtml}</p>
-      <div class="free-input-area">
+    card.innerHTML = `<div class="scene-emoji">${q.emoji}</div>
+      <p class="scenario">${scHtml}</p>
+      <div class="free-input-area" id="fia">
         <textarea class="free-input" id="free-input" placeholder="${q.placeholder}" maxlength="100"></textarea>
-        <button class="btn-submit-free" id="btn-submit-free" onclick="submitFreeText()" disabled>次へ</button>
+        <button class="btn-submit-free" id="btn-sf" onclick="submitFree()" disabled>次へ</button>
       </div>
       <div class="free-reaction" id="free-reaction">
-        <div class="reaction-emoji" id="reaction-emoji"></div>
-        <div class="reaction-text" id="reaction-text"></div>
+        <div class="reaction-emoji" id="r-emoji"></div>
+        <div class="reaction-text" id="r-text"></div>
       </div>`;
-    const input = document.getElementById('free-input');
-    const btn = document.getElementById('btn-submit-free');
-    input.addEventListener('input', () => { btn.disabled = input.value.trim().length === 0; });
-    setTimeout(() => input.focus(), 400);
+    const inp=document.getElementById('free-input'), btn=document.getElementById('btn-sf');
+    inp.addEventListener('input',()=>{btn.disabled=inp.value.trim().length===0});
+    setTimeout(()=>inp.focus(),400);
   }
 }
 
-function selectOption(index) {
+function selectOption(i) {
   if (isTransitioning) return;
-  isTransitioning = true;
-  const q = questions[currentQuestion];
-  scores.push(q.options[index].score);
-  const btns = document.querySelectorAll('.option-btn');
-  btns[index].classList.add('selected');
-  btns.forEach(b => b.style.pointerEvents = 'none');
-  setTimeout(() => { currentQuestion++; isTransitioning = false; nextOrFinish(); }, 350);
+  isTransitioning=true;
+  scores.push(questions[currentQuestion].options[i].score);
+  const btns=document.querySelectorAll('.option-btn');
+  btns[i].classList.add('selected');
+  btns.forEach(b=>b.style.pointerEvents='none');
+  setTimeout(()=>{currentQuestion++;isTransitioning=false;next()},350);
 }
 
-function submitFreeText() {
+function submitFree() {
   if (isTransitioning) return;
-  isTransitioning = true;
-  const text = document.getElementById('free-input').value.trim();
-  freeTextResponse = text;
-  freeTextAnalysis = analyzeFreeText(text);
-  scores.push(freeTextAnalysis.score);
-  document.querySelector('.free-input-area').style.display = 'none';
-  const reaction = document.getElementById('free-reaction');
-  document.getElementById('reaction-emoji').textContent = freeTextAnalysis.emoji;
-  document.getElementById('reaction-text').innerHTML = freeTextAnalysis.msg.replace(/\n/g, '<br>');
-  reaction.classList.add('show');
-  setTimeout(() => { currentQuestion++; isTransitioning = false; nextOrFinish(); }, 1800);
+  isTransitioning=true;
+  const q=questions[currentQuestion];
+  const text=document.getElementById('free-input').value.trim();
+  const analysis=analyzeFree(q.freeId,text);
+  scores.push(analysis.score);
+  freeTexts[currentQuestion]={response:text,analysis,freeId:q.freeId};
+  document.getElementById('fia').style.display='none';
+  const r=document.getElementById('free-reaction');
+  document.getElementById('r-emoji').textContent=analysis.emoji;
+  document.getElementById('r-text').innerHTML=analysis.msg;
+  r.classList.add('show');
+  setTimeout(()=>{currentQuestion++;isTransitioning=false;next()},1800);
 }
 
-function nextOrFinish() {
-  if (currentQuestion < questions.length) renderQuestion();
-  else showAnalysis();
+function next() {
+  currentQuestion<questions.length ? renderQuestion() : showAnalysis();
 }
 
 function showAnalysis() {
   showScreen('analysis-screen');
-  const sub = document.getElementById('analysis-sub');
-  setTimeout(() => sub.classList.add('show'), 1000);
-  setTimeout(() => {
-    document.getElementById('analysis-text').textContent = '診断完了！';
-    document.querySelector('#analysis-screen .analysis-emoji').textContent = '✨';
-    sub.textContent = '結果を表示します...';
-  }, 2500);
-  setTimeout(() => showResult(), 3500);
+  const sub=document.getElementById('analysis-sub');
+  setTimeout(()=>sub.classList.add('show'),1000);
+  setTimeout(()=>{
+    document.getElementById('analysis-text').textContent='診断完了！';
+    document.getElementById('analysis-emoji').textContent='✨';
+    sub.textContent='結果を表示します...';
+  },2500);
+  setTimeout(()=>showResult(),3500);
 }
 
 function showResult() {
-  const totalScore = scores.reduce((a, b) => a + b, 0);
-  const minS = questions.length;
-  const maxS = questions.length * 4;
-  const pct = Math.round(((totalScore - minS) / (maxS - minS)) * 100);
-
-  // Dimension scores
-  const dimScores = dimensionConfig.map(dim => {
-    const avg = dim.qIndices.reduce((sum, qi) => sum + (scores[qi] || 2.5), 0) / dim.qIndices.length;
-    return Math.round(((avg - 1) / 3) * 100);
+  const total=scores.reduce((a,b)=>a+b,0);
+  const minS=questions.length, maxS=questions.length*4;
+  const pct=Math.round(((total-minS)/(maxS-minS))*100);
+  const dimScores=dimensionConfig.map(d=>{
+    const avg=d.qi.reduce((s,i)=>s+(scores[i]||2.5),0)/d.qi.length;
+    return Math.round(((avg-1)/3)*100);
   });
 
-  let tier = resultTiers[resultTiers.length - 1];
-  for (const t of resultTiers) { if (pct >= t.min) { tier = t; break; } }
+  let tier=resultTiers[resultTiers.length-1];
+  for(const t of resultTiers){if(pct>=t.min){tier=t;break}}
 
-  const freeSection = freeTextResponse ? `
-    <div class="result-freetext">
-      <div class="result-freetext-label">👶 泣いている子への一言</div>
-      <div class="result-freetext-quote">「${escapeHtml(freeTextResponse)}」</div>
-      <div class="result-freetext-analysis">${freeTextAnalysis.emoji} ${freeTextAnalysis.msg}</div>
-    </div>` : '';
+  // Build free text section
+  let ftHtml='';
+  const ftKeys=Object.keys(freeTexts).sort((a,b)=>a-b);
+  if(ftKeys.length){
+    ftHtml='<div class="freetext-section"><div class="freetext-section-title">💬 あなたの生の声</div>';
+    for(const k of ftKeys){
+      const ft=freeTexts[k];
+      const cfg=freeTextCfg[ft.freeId];
+      ftHtml+=`<div class="result-freetext">
+        <div class="result-freetext-label">${cfg?cfg.label:''}</div>
+        <div class="result-freetext-quote">「${escapeHtml(ft.response)}」</div>
+        <div class="result-freetext-analysis">${ft.analysis.emoji} ${ft.analysis.msg}</div>
+      </div>`;
+    }
+    ftHtml+='</div>';
+  }
 
-  document.getElementById('result-card').innerHTML = `
+  // Build feedback section
+  let fbHtml='<div class="feedback-section"><div class="feedback-header">👀 こんなこと言われない？</div><div class="feedback-sub">タップして反応してね</div>';
+  tier.feedback.forEach((f,i)=>{
+    fbHtml+=`<div class="fb-item" id="fb-${i}">
+      <span class="fb-text">「${f}」</span>
+      <div class="fb-buttons">
+        <button class="fb-btn fb-yes" onclick="reactFB(${i},true)">わかる！</button>
+        <button class="fb-btn fb-no" onclick="reactFB(${i},false)">ちがうし！</button>
+      </div>
+    </div>`;
+  });
+  fbHtml+='</div>';
+
+  document.getElementById('result-card').innerHTML=`
     <div class="result-emoji">${tier.emoji}</div>
     <div class="result-title">${tier.title}</div>
     <div class="gauge-wrapper">
@@ -621,138 +552,74 @@ function showResult() {
     <div class="radar-section">
       <div class="radar-title">🔍 5次元分析</div>
       <div class="radar-canvas-wrapper">
-        <canvas id="radar-chart" width="280" height="280" style="width:280px;height:280px;"></canvas>
+        <canvas id="radar-chart" width="280" height="280" style="width:280px;height:280px"></canvas>
       </div>
     </div>
     <div class="result-desc">${tier.desc}</div>
     <div class="result-advice">
-      <div class="result-advice-label">💡 あなたへのヒント</div>
-      ${tier.advice}
+      <div class="result-advice-label">💡 あなたへのヒント</div>${tier.advice}
     </div>
-    ${freeSection}
-    <div class="result-traits">${tier.traits.map(t => `<span class="trait-badge">${t}</span>`).join('')}</div>
-    <button class="btn-retry" onclick="startQuiz()">もう一度やる</button>`;
+    ${fbHtml}
+    ${ftHtml}
+    <div class="result-traits">${tier.traits.map(t=>`<span class="trait-badge">${t}</span>`).join('')}</div>
+    <button class="btn-retry" onclick="goToStart()">もう一度やる</button>`;
 
   showScreen('result-screen');
-
-  setTimeout(() => {
-    animateCounter(0, pct, 1500);
-    setTimeout(() => document.getElementById('gauge-marker').classList.add('show'), 1600);
-  }, 800);
-
-  setTimeout(() => drawRadarAnimated(dimScores), 1200);
+  setTimeout(()=>{
+    animateCounter(0,pct,1500);
+    setTimeout(()=>document.getElementById('gauge-marker').classList.add('show'),1600);
+  },800);
+  setTimeout(()=>drawRadar(dimScores),1200);
 }
 
-// ===== RADAR CHART =====
-function drawRadarAnimated(dimScores) {
-  const canvas = document.getElementById('radar-chart');
-  if (!canvas) return;
-  const dpr = window.devicePixelRatio || 1;
-  canvas.width = 280 * dpr;
-  canvas.height = 280 * dpr;
-  canvas.style.width = '280px';
-  canvas.style.height = '280px';
-  const ctx = canvas.getContext('2d');
-  ctx.scale(dpr, dpr);
+function reactFB(i,agreed) {
+  const el=document.getElementById('fb-'+i);
+  el.classList.add('reacted');
+  el.classList.add(agreed?'agreed':'disagreed');
+}
 
-  const cx = 140, cy = 148, radius = 100, n = 5;
-  const angleStep = (Math.PI * 2) / n;
-  const startAngle = -Math.PI / 2;
-  const labels = dimensionConfig.map(d => d.name);
-  const duration = 1200;
-  const start = performance.now();
+// ===== RADAR =====
+function drawRadar(ds) {
+  const canvas=document.getElementById('radar-chart');
+  if(!canvas)return;
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=280*dpr;canvas.height=280*dpr;
+  canvas.style.width='280px';canvas.style.height='280px';
+  const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
+  const cx=140,cy=148,R=100,n=5,step=Math.PI*2/n,sa=-Math.PI/2;
+  const labels=dimensionConfig.map(d=>d.name);
+  const dur=1200,start=performance.now();
 
-  function draw(progress) {
-    ctx.clearRect(0, 0, 280, 280);
-    // Grid
-    for (let level = 1; level <= 3; level++) {
-      const r = radius * (level / 3);
-      ctx.beginPath();
-      for (let i = 0; i < n; i++) {
-        const a = startAngle + i * angleStep;
-        const x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r;
-        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-      }
-      ctx.closePath();
-      ctx.strokeStyle = '#E8E8E8';
-      ctx.lineWidth = 1;
-      ctx.stroke();
+  function draw(p){
+    ctx.clearRect(0,0,280,280);
+    for(let lv=1;lv<=3;lv++){
+      const r=R*(lv/3);ctx.beginPath();
+      for(let i=0;i<n;i++){const a=sa+i*step;const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;i?ctx.lineTo(x,y):ctx.moveTo(x,y)}
+      ctx.closePath();ctx.strokeStyle='#E8E8E8';ctx.lineWidth=1;ctx.stroke();
     }
-    // Axes
-    for (let i = 0; i < n; i++) {
-      const a = startAngle + i * angleStep;
-      ctx.beginPath();
-      ctx.moveTo(cx, cy);
-      ctx.lineTo(cx + Math.cos(a) * radius, cy + Math.sin(a) * radius);
-      ctx.strokeStyle = '#E8E8E8';
-      ctx.stroke();
-    }
-    // Data area
+    for(let i=0;i<n;i++){const a=sa+i*step;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);ctx.strokeStyle='#E8E8E8';ctx.stroke()}
     ctx.beginPath();
-    for (let i = 0; i < n; i++) {
-      const a = startAngle + i * angleStep;
-      const r2 = radius * (dimScores[i] / 100) * progress;
-      const x = cx + Math.cos(a) * r2, y = cy + Math.sin(a) * r2;
-      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-    }
-    ctx.closePath();
-    ctx.fillStyle = 'rgba(255,107,138,0.15)';
-    ctx.fill();
-    ctx.strokeStyle = '#FF6B8A';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-    // Data points
-    for (let i = 0; i < n; i++) {
-      const a = startAngle + i * angleStep;
-      const r2 = radius * (dimScores[i] / 100) * progress;
-      ctx.beginPath();
-      ctx.arc(cx + Math.cos(a) * r2, cy + Math.sin(a) * r2, 4, 0, Math.PI * 2);
-      ctx.fillStyle = '#FF6B8A';
-      ctx.fill();
-    }
-    // Labels + scores
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    for (let i = 0; i < n; i++) {
-      const a = startAngle + i * angleStep;
-      const lr = radius + 28;
-      const lx = cx + Math.cos(a) * lr, ly = cy + Math.sin(a) * lr;
-      ctx.font = '700 11px "M PLUS Rounded 1c", sans-serif';
-      ctx.fillStyle = '#2D3436';
-      ctx.fillText(labels[i], lx, ly - 7);
-      ctx.font = '800 11px "M PLUS Rounded 1c", sans-serif';
-      ctx.fillStyle = '#FF6B8A';
-      ctx.fillText(Math.round(dimScores[i] * progress) + '%', lx, ly + 8);
+    for(let i=0;i<n;i++){const a=sa+i*step;const r=R*(ds[i]/100)*p;i?ctx.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r):ctx.moveTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r)}
+    ctx.closePath();ctx.fillStyle='rgba(255,107,138,.15)';ctx.fill();ctx.strokeStyle='#FF6B8A';ctx.lineWidth=2;ctx.stroke();
+    for(let i=0;i<n;i++){const a=sa+i*step;const r=R*(ds[i]/100)*p;ctx.beginPath();ctx.arc(cx+Math.cos(a)*r,cy+Math.sin(a)*r,4,0,Math.PI*2);ctx.fillStyle='#FF6B8A';ctx.fill()}
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    for(let i=0;i<n;i++){
+      const a=sa+i*step;const lr=R+28;const lx=cx+Math.cos(a)*lr,ly=cy+Math.sin(a)*lr;
+      ctx.font='700 11px "M PLUS Rounded 1c",sans-serif';ctx.fillStyle='#2D3436';ctx.fillText(labels[i],lx,ly-7);
+      ctx.font='800 11px "M PLUS Rounded 1c",sans-serif';ctx.fillStyle='#FF6B8A';ctx.fillText(Math.round(ds[i]*p)+'%',lx,ly+8);
     }
   }
-
-  function animate(now) {
-    const elapsed = now - start;
-    const p = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    draw(eased);
-    if (p < 1) requestAnimationFrame(animate);
-  }
-  requestAnimationFrame(animate);
+  function anim(now){const e=now-start;const p=Math.min(e/dur,1);draw(1-Math.pow(1-p,3));if(p<1)requestAnimationFrame(anim)}
+  requestAnimationFrame(anim);
 }
 
-function animateCounter(from, to, duration) {
-  const el = document.getElementById('result-percent');
-  const start = performance.now();
-  function update(now) {
-    const p = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(from + (to - from) * eased) + '%';
-    if (p < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
+function animateCounter(from,to,dur){
+  const el=document.getElementById('result-percent');const start=performance.now();
+  function u(now){const p=Math.min((now-start)/dur,1);el.textContent=Math.round(from+(to-from)*(1-Math.pow(1-p,3)))+'%';if(p<1)requestAnimationFrame(u)}
+  requestAnimationFrame(u);
 }
 
-function escapeHtml(str) {
-  const d = document.createElement('div');
-  d.textContent = str;
-  return d.innerHTML;
-}
+function escapeHtml(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
 </script>
 </body>
 </html>
