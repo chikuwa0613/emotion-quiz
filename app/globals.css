@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-deep: #0b0e1a;
+  --navy: #111827;
+  --navy-light: #1e2640;
+  --gold: #c9a84c;
+  --gold-light: #e8c87a;
+  --gold-dim: #8b6f2e;
+  --mystic-white: #f5f0e8;
+  --mystic-dim: #9b9587;
+  --mystic-star: #7b9fd4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--navy-deep);
+  color: var(--mystic-white);
+  font-family: "Noto Serif JP", serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== スクロールバー ===== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--navy-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dim);
+  border-radius: 2px;
+}
+
+/* ===== 背景星エフェクト ===== */
+.star-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
+  opacity: 0;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: var(--op, 0.8); transform: scale(1); }
+}
+
+/* ===== ミスティックカード ===== */
+.mystic-card {
+  background: linear-gradient(145deg, rgba(22, 29, 48, 0.95), rgba(17, 24, 39, 0.9));
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.15), 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.mystic-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 17px;
+  background: linear-gradient(
+    135deg,
+    rgba(201, 168, 76, 0.4) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(201, 168, 76, 0.2) 100%
+  );
+  z-index: -1;
+}
+
+/* ===== 金色テキスト ===== */
+.gold-text {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+}
+
+/* ===== 区切り線 ===== */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.5), transparent);
+}
+
+/* ===== アニメーション ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(201, 168, 76, 0.5), 0 0 60px rgba(201, 168, 76, 0.2);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes loadingText {
+  0% { opacity: 0; transform: translateY(10px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* ===== ローディング ===== */
+.loading-ring {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 168, 76, 0.2);
+  border-top-color: var(--gold);
+  animation: rotateSlow 2s linear infinite;
+}
+
+.loading-ring-outer {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  border-bottom-color: var(--gold-light);
+  animation: rotateSlow 3s linear infinite reverse;
+}
+
+/* ===== 結果カード reveal ===== */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== セレクトボックス ===== */
+select {
+  background-color: rgba(22, 29, 48, 0.8);
+  color: var(--mystic-white);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: "Noto Serif JP", serif;
+  font-size: 14px;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.2);
+}
+
+select option {
+  background-color: #1e2640;
+  color: var(--mystic-white);
+}
+
+/* ===== ラジオボタン ===== */
+.palm-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: 1px solid transparent;
+}
+
+.palm-option:hover {
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.palm-option input[type="radio"] {
+  accent-color: var(--gold);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.palm-option input[type="radio"]:checked + span {
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+/* ===== ボタン ===== */
+.btn-gold {
+  background: linear-gradient(135deg, #c9a84c, #e8c87a, #c9a84c);
+  background-size: 200% auto;
+  color: #0b0e1a;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 48px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Noto Serif JP", serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.05em;
+}
+
+.btn-gold:hover {
+  background-position: right center;
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 50px;
+  padding: 12px 36px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Noto Serif JP", serif;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  background: rgba(201, 168, 76, 0.1);
+}
+
+/* ===== バッジ ===== */
+.keyword-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 50px;
+  font-size: 12px;
+  color: var(--gold-light);
+}
